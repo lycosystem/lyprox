@@ -4,8 +4,8 @@ import logging
 import time
 from typing import Any
 
+import lydata.utils as lyutils
 import pandas as pd
-from lydata.utils import get_default_modalities
 from pandas.io.formats.style import Styler
 
 from lyprox.accounts.models import Institution
@@ -37,7 +37,7 @@ def map_to_cell_classes(patients: pd.DataFrame) -> pd.DataFrame:
     """Return a class for each cell of the ``patients`` table."""
     consensus = "max_llh" if "max_llh" in patients.columns else "rank"
     classes_map = pd.DataFrame().reindex_like(patients).fillna("")
-    modalities = [consensus, "sonography"] + list(get_default_modalities())
+    modalities = [consensus, "sonography"] + list(lyutils.get_default_modalities())
 
     for modality in modalities:
         if modality not in patients:
