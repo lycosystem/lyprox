@@ -156,10 +156,10 @@ def index(request):
     context = add_lycosystem_repos_to_context(
         context=context,
         repo_ids_and_img_paths=[
-            ("rmnldwg/lymph", "docs/source/_static/github-social-card.png"),
+            ("lycosystem/lymph", "github-social-card.png"),
             ("lycosystem/lyprox", "lyprox/static/github-social-card.png"),
             ("rmnldwg/lydata", "github-social-card.png"),
-            ("rmnldwg/lyscripts", "github-social-card.png"),
+            ("lycosystem/lyscripts", "github-social-card.png"),
             ("lycosystem/lymixture", "github-social-card.png"),
         ],
         ref="main",
