@@ -88,7 +88,7 @@
         "is_active": true,
         "is_staff": false,
         "is_superuser": false
-    }
+    },
     {
         "email": "noemi.buehrer@usz.ch",
         "first_name": "Noemi",

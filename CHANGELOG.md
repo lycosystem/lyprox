@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.1.3"></a>
+
+## [1.1.3] - 2025-06-10
+
+### 🐛 Bug Fixes
+
+- Add missing comma in initial users JSON
+- `add_datasets` robust against bad credentials
+
+### 💼 Other
+
+- Use TTL cache for fetched repository contents
+
 <a name="1.1.2"></a>
 
 ## [1.1.2] - 2025-06-10
@@ -16,7 +29,6 @@ All notable changes to this project will be documented in this file.
 
 ### 💼 Other
 
-- Branch 'main' into 'dev'
 - Modularize landing page
 
 ### 📚 Documentation
@@ -35,7 +47,7 @@ All notable changes to this project will be documented in this file.
 
 - Get admin email address from environment variables
 - Add our publications to landing page's context from list of DOIs
-- Force update of browser's static file cache with appended version nummber
+- Force update of browser's static file cache with appended version number
 
 ### 🐛 Bug Fixes
 
@@ -471,6 +483,7 @@ Commits before the 2nd of March 2023 did not use conventional commits and no cha
 - [0.0.2] - 2021-10-04
 - 0.0.1 - 2021-10-04
 
+[1.1.3]: https://github.com/rmnldwg/lyprox/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/rmnldwg/lyprox/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/rmnldwg/lyprox/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/rmnldwg/lyprox/compare/1.0.3...1.1.0

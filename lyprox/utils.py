@@ -1,9 +1,14 @@
 """Utility functions."""
 
 import logging
+from datetime import timedelta
 from typing import Any, TypeVar
 
+from cachetools.func import ttl_cache
 from django.forms import Form
+from github import Repository
+
+from lyprox.settings import GITHUB
 
 logger = logging.getLogger(__name__)
 
@@ -28,3 +33,9 @@ def form_from_initial(cls: type[T], **kwargs: Any) -> T:
     logger.info(f"Creating {cls.__name__} form with initial data.")
     logger.debug(f"{initial_data = }")
     return cls(initial_data, **kwargs)
+
+
+@ttl_cache(maxsize=100, ttl=timedelta(days=1).total_seconds())
+def cached_get_repo(repo_id: str) -> Repository:
+    """Return a GitHub repository object, cached for 1 day."""
+    return GITHUB.get_repo(repo_id)

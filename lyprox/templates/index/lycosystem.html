@@ -10,9 +10,14 @@
 <div class="grid">
   {% for repo in repos %}
   <div class="cell">
-    <div class="card">
+    <a class="card" href="{{ repo.url }}">
       <header class="card-header">
-        <p class="card-header-title is-family-monospace">{{ repo.owner }}/{{ repo.name }}</p>
+        <span class="card-header-title icon-text is-family-monospace has-text-link">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>{{ repo.owner }}/{{ repo.name }}</span>
+        </span>
       </header>
       <div class="card-image">
         <figure class="image is-2by1">
@@ -24,25 +29,7 @@
           {{ repo.description }}
         </div>
       </div>
-      <div class="card-footer">
-        <a href="{{ repo.url }}" class="card-footer-item">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fab fa-github"></i>
-            </span>
-            <span>GitHub</span>
-          </span>
-        </a>
-        <a href="{{ repo.docs_url }}" class="card-footer-item">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-book"></i>
-            </span>
-            <span>Docs</span>
-          </span>
-        </a>
-      </div>
-    </div>
+    </a>
   </div>
   {% endfor %}
 </div>

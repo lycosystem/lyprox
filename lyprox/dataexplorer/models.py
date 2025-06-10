@@ -11,7 +11,8 @@ from lydata.utils import infer_all_levels
 
 from lyprox import loggers
 from lyprox.accounts.models import Institution
-from lyprox.settings import GITHUB, GITHUB_TOKEN, JOBLIB_MEMORY
+from lyprox.settings import GITHUB_TOKEN, JOBLIB_MEMORY
+from lyprox.utils import cached_get_repo
 
 logger = logging.getLogger(__name__)
 
@@ -81,7 +82,7 @@ class DatasetModel(loggers.ModelLoggerMixin, models.Model):
 
     def get_repo(self) -> Repository:
         """Return the GitHub repository object."""
-        return GITHUB.get_repo(self.repo_name)
+        return cached_get_repo(repo_id=self.repo_name)
 
     def get_kwargs(self) -> dict[str, int | str]:
         """Assemble ``kwargs`` from this model's field.

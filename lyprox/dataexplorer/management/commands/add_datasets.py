@@ -55,6 +55,7 @@ from pathlib import Path
 
 from django.core.management import base
 from django.db import IntegrityError
+from github import BadCredentialsException
 
 from lyprox.accounts.models import Institution
 from lyprox.dataexplorer.models import DatasetModel
@@ -127,21 +128,19 @@ class Command(base.BaseCommand):
             try:
                 dataset = DatasetModel.objects.create(**config)
                 table = dataset.load_dataframe()
-                self.stdout.write(
-                    self.style.SUCCESS(
-                        f"Successfully added dataset {dataset} with {table.shape=}."
-                    )
-                )
+                msg = f"Successfully added dataset {dataset} with {table.shape=}."
+                self.stdout.write(self.style.SUCCESS(msg))
             except IntegrityError:
-                self.stdout.write(
-                    self.style.WARNING(
-                        f"Dataset '{config['year']}"
-                        f"-{config['institution'].shortname.lower()}"
-                        f"-{config['subsite']}' already exists. Skipping."
-                    )
+                msg = (
+                    f"Dataset '{config['year']}"
+                    f"-{config['institution'].shortname.lower()}"
+                    f"-{config['subsite']}' already exists. Skipping."
                 )
+                self.stdout.write(self.style.WARNING(msg))
+            except BadCredentialsException:
+                msg = "Failed to add dataset due to invalid GitHub credentials."
+                self.stdout.write(self.style.ERROR(msg))
             except Exception as exc:
-                self.stdout.write(
-                    self.style.ERROR(f"Failed to add dataset {config} due to {exc}.")
-                )
+                msg = f"Failed to add dataset {config} due to {exc}."
+                self.stdout.write(self.style.ERROR(msg))
                 dataset.delete()
