@@ -7,7 +7,7 @@
   <head>
     
     <title>lyprox.riskpredictor.models</title>
-    <meta name="generator" content="pydoctor 24.11.2"> 
+    <meta name="generator" content="pydoctor 25.4.0"> 
         
     </meta>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -438,12 +438,12 @@ instances, the personalized risk estimates can be computed.</p>
     
     <td>Type Alias</td>
     <td><code><a href="#ConfigAndVersionTupleType" class="internal-link" title="lyprox.riskpredictor.models.ConfigAndVersionTupleType"><wbr></wbr>Config<wbr></wbr>And<wbr></wbr>Version<wbr></wbr>Tuple<wbr></wbr>Type</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
   </tr><tr class="variable">
     
     <td>Variable</td>
     <td><code><a href="#logger" class="internal-link" title="lyprox.riskpredictor.models.logger">logger</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
   </tr>
 </table>
           
@@ -463,8 +463,8 @@ instances, the personalized risk estimates can be computed.</p>
   </a>
   <div class="functionHeader">
     
-    @JOBLIB_MEMORY.cache<br />
-    <span class="py-keyword">def</span> <span class="py-defname">cached_compute_priors</span><span class="function-signature">(model: <code><a href="https://lymph-model.readthedocs.io/stable/types.html#lymph.types.Model" class="intersphinx-link">Model</a></code>, samples: <code>np.ndarray</code>, t_stage: <code>str | int</code>) -&gt; <code>np.ndarray</code></span>:
+    <div><span class="decorator">@JOBLIB_MEMORY.cache<br /></span></div>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">cached_compute_priors</span><span class="function-signature long-signature">(<span class="rst-sig-param">model: <code><a href="https://lymph-model.readthedocs.io/stable/types.html#lymph.types.Model" class="intersphinx-link">Model</a></code>, </span><span class="rst-sig-param">samples: <code>np.ndarray</code>, </span><span class="rst-sig-param">t_stage: <code>str | int</code></span>) -&gt; <code>np.ndarray</code>:</span>
     
     <a class="headerLink" href="#cached_compute_priors" title="lyprox.riskpredictor.models.cached_compute_priors">
       
@@ -487,8 +487,8 @@ instances, the personalized risk estimates can be computed.</p>
   </a>
   <div class="functionHeader">
     
-    @JOBLIB_MEMORY.cache<br />
-    <span class="py-keyword">def</span> <span class="py-defname">cached_construct_model_and_add_dists</span><span class="function-signature">(graph_config: <code><a href="https://lyscripts.readthedocs.io/latest/configs.html#lyscripts.configs.GraphConfig" class="intersphinx-link">GraphConfig</a></code>, model_config: <code><a href="https://lyscripts.readthedocs.io/latest/configs.html#lyscripts.configs.ModelConfig" class="intersphinx-link">ModelConfig</a></code>, dist_configs: <code>dict[<wbr></wbr>str | int, <wbr></wbr><a href="https://lyscripts.readthedocs.io/latest/configs.html#lyscripts.configs.DistributionConfig" class="intersphinx-link">DistributionConfig</a>]</code>, version: <code>int</code>) -&gt; <code><a href="https://lymph-model.readthedocs.io/stable/types.html#lymph.types.Model" class="intersphinx-link">Model</a></code></span>:
+    <div><span class="decorator">@JOBLIB_MEMORY.cache<br /></span></div>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">cached_construct_model_and_add_dists</span><span class="function-signature long-signature">(<span class="rst-sig-param">graph_config: <code><a href="https://lyscripts.readthedocs.io/latest/configs.html#lyscripts.configs.GraphConfig" class="intersphinx-link">GraphConfig</a></code>, </span><span class="rst-sig-param">model_config: <code><a href="https://lyscripts.readthedocs.io/latest/configs.html#lyscripts.configs.ModelConfig" class="intersphinx-link">ModelConfig</a></code>, </span><span class="rst-sig-param">dist_configs: <code>dict[<wbr></wbr>str | int, <wbr></wbr><a href="https://lyscripts.readthedocs.io/latest/configs.html#lyscripts.configs.DistributionConfig" class="intersphinx-link">DistributionConfig</a>]</code>, </span><span class="rst-sig-param">version: <code>int</code></span>) -&gt; <code><a href="https://lymph-model.readthedocs.io/stable/types.html#lymph.types.Model" class="intersphinx-link">Model</a></code>:</span>
     
     <a class="headerLink" href="#cached_construct_model_and_add_dists" title="lyprox.riskpredictor.models.cached_construct_model_and_add_dists">
       
@@ -511,8 +511,8 @@ instances, the personalized risk estimates can be computed.</p>
   </a>
   <div class="functionHeader">
     
-    @JOBLIB_MEMORY.cache<br />
-    <span class="py-keyword">def</span> <span class="py-defname">cached_fetch_and_merge_yaml</span><span class="function-signature">(repo_name: <code>str</code>, ref: <code>str</code>, graph_config_path: <code>str</code>, model_config_path: <code>str</code>, dist_configs_path: <code>str</code>) -&gt; <code>dict[<wbr></wbr>str, <wbr></wbr>Any]</code></span>:
+    <div><span class="decorator">@JOBLIB_MEMORY.cache<br /></span></div>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">cached_fetch_and_merge_yaml</span><span class="function-signature long-signature">(<span class="rst-sig-param">repo_name: <code>str</code>, </span><span class="rst-sig-param">ref: <code>str</code>, </span><span class="rst-sig-param">graph_config_path: <code>str</code>, </span><span class="rst-sig-param">model_config_path: <code>str</code>, </span><span class="rst-sig-param">dist_configs_path: <code>str</code></span>) -&gt; <code>dict[<wbr></wbr>str, <wbr></wbr>Any]</code>:</span>
     
     <a class="headerLink" href="#cached_fetch_and_merge_yaml" title="lyprox.riskpredictor.models.cached_fetch_and_merge_yaml">
       
@@ -535,8 +535,8 @@ instances, the personalized risk estimates can be computed.</p>
   </a>
   <div class="functionHeader">
     
-    @JOBLIB_MEMORY.cache<br />
-    <span class="py-keyword">def</span> <span class="py-defname">cached_fetch_model_samples</span><span class="function-signature">(repo_name: <code>str</code>, ref: <code>str</code>, samples_path: <code>str</code>, num_samples: <code>int</code>, seed: <code>int</code> = 42) -&gt; <code>np.ndarray</code></span>:
+    <div><span class="decorator">@JOBLIB_MEMORY.cache<br /></span></div>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">cached_fetch_model_samples</span><span class="function-signature long-signature">(<span class="rst-sig-param">repo_name: <code>str</code>, </span><span class="rst-sig-param">ref: <code>str</code>, </span><span class="rst-sig-param">samples_path: <code>str</code>, </span><span class="rst-sig-param">num_samples: <code>int</code>, </span><span class="rst-sig-param">seed: <code>int</code> = 42</span>) -&gt; <code>np.ndarray</code>:</span>
     
     <a class="headerLink" href="#cached_fetch_model_samples" title="lyprox.riskpredictor.models.cached_fetch_model_samples">
       
@@ -560,7 +560,7 @@ instances, the personalized risk estimates can be computed.</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span> <span class="py-defname">validate_configs</span><span class="function-signature">(merged_yaml: <code>dict[<wbr></wbr>str, <wbr></wbr>Any]</code>) -&gt; <code><a href="#ConfigAndVersionTupleType" class="internal-link" title="lyprox.riskpredictor.models.ConfigAndVersionTupleType">ConfigAndVersionTupleType</a></code></span>:
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">validate_configs</span><span class="function-signature">(<span class="rst-sig-param">merged_yaml: <code>dict[<wbr></wbr>str, <wbr></wbr>Any]</code></span>) -&gt; <code><a href="#ConfigAndVersionTupleType" class="internal-link" title="lyprox.riskpredictor.models.ConfigAndVersionTupleType">ConfigAndVersionTupleType</a></code>:</span>
     
     <a class="headerLink" href="#validate_configs" title="lyprox.riskpredictor.models.validate_configs">
       
@@ -632,7 +632,7 @@ instances, the personalized risk estimates can be computed.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for LyProX,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    24.11.2 at 2025-05-07 14:57:45.
+    25.4.0 at 2025-06-10 10:27:51.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
