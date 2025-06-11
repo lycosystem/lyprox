@@ -1722,7 +1722,6 @@ dependencies = [
     { name = "lymph-model" },
     { name = "lyscripts" },
     { name = "markdown" },
-    { name = "pre-commit" },
     { name = "pygithub" },
     { name = "python-markdown-math" },
 ]
@@ -1758,7 +1757,6 @@ requires-dist = [
     { name = "lyscripts", specifier = "==1.0.0a7" },
     { name = "markdown", specifier = "~=3.7" },
     { name = "myst-parser", marker = "extra == 'docs'" },
-    { name = "pre-commit", specifier = ">=4.2.0" },
     { name = "pre-commit", marker = "extra == 'dev'" },
     { name = "pydoctor", marker = "extra == 'docs'" },
     { name = "pygithub", specifier = "~=2.6" },
