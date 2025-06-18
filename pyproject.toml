@@ -50,6 +50,7 @@ test = [
 dev = [
     "django-extensions ~= 3.2",
     "pre-commit",
+    "git-cliff",
 ]
 
 [project.scripts]
@@ -66,7 +67,7 @@ write_to = "lyprox/_version.py"
 local_scheme = "no-local-version"
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "B", "C", "R", "U", "D", "I", "S", "T", "A", "N"]
+select = ["E", "F", "W", "B", "C", "R", "U", "D", "I", "S", "T", "A", "N", "COM", "FURB", "NPY", "UP"]
 ignore = ["D204", "D205", "D213"]
 exclude = ["*/migrations/*", "tests/*"]
 
