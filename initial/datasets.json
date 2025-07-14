@@ -54,5 +54,12 @@
         "subsite": "hypopharynx",
         "repo_name": "rmnldwg/lydata.private",
         "ref": "2025-ukf-hypopharynx"
+    },
+    {
+        "year": 2025,
+        "institution": "ksa",
+        "subsite": "oral-cavity",
+        "repo_name": "lycosystem/lydata.private",
+        "ref": "2025-ksa-oral-cavity"
     }
 ]
