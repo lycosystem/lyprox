@@ -42,7 +42,7 @@ class MyMathExtension(MathExtension):
         self.config.update(
             {
                 "enable_dollar_delimiter": [True, "Enable single-dollar delimiter"],
-            },
+            }
         )
 
 
@@ -181,7 +181,6 @@ def get_percent(value_counts: dict[Any, int], key: Any) -> str:
 
     Use it like this in the HTML templates: ``{{ value_counts|get_percent:key }}``.
     """
-    logger.warning("yoooo")
     total = sum(list(value_counts.values()))
     return " - " if total == 0 else f"{100 * value_counts[key] / total:.0f}"
 
