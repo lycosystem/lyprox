@@ -83,7 +83,7 @@ def join_dataset_tables(datasets: QuerySet | Sequence[DatasetModel]) -> pd.DataF
     """Join the tables of the selected datasets into a single table.
 
     This iterates through the datasets and loads their respective `pd.DataFrame` tables.
-    It also adds a column ``["dataset", "info", "name"]`` to the table to keep track of
+    It also adds a column ``["dataset", "core", "name"]`` to the table to keep track of
     which dataset a row belongs to. Finally, it concatenates all tables into a single
     table and returns it.
 
@@ -94,13 +94,13 @@ def join_dataset_tables(datasets: QuerySet | Sequence[DatasetModel]) -> pd.DataF
     tables = []
     for dataset in datasets:
         table = dataset.load_dataframe()
-        table["dataset", "info", "name"] = dataset.name
+        table["dataset", "core", "name"] = dataset.name
         tables.append(table)
 
     if len(tables) == 0:
         schema = lyvalidator.construct_schema(modalities=["max_llh", "rank"])
         empty_table = pd.DataFrame(columns=schema.columns.keys())
-        empty_table["dataset", "info", "name"] = []
+        empty_table["dataset", "core", "name"] = []
         return empty_table
 
     return pd.concat(tables, ignore_index=True)
@@ -272,7 +272,7 @@ class BaseStatistics(BaseModel):
 
             # key `datasets` is not a shorthand code provided by the `lydata` package
             if name == "datasets":
-                stats[name] = safe_value_counts(table["dataset", "info", "name"])
+                stats[name] = safe_value_counts(table["dataset", "core", "name"])
                 continue
 
             # key `is_n_plus` is not a shorthand code provided by the `lydata` package

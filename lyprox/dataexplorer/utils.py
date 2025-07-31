@@ -94,6 +94,10 @@ def style_table(patients: pd.DataFrame) -> Styler:
         ("patient", "#", "id"),
         ("patient", "info", "id"),
         ("dataset", "info", "name"),
+        # the cols above are deprecated, but may still show up in the datasets
+        ("patient", "core", "id"),
+        ("patient", "core", "id"),
+        ("dataset", "core", "name"),
         ("total_dissected"),
         ("positive_dissected"),
         ("enbloc_dissected"),

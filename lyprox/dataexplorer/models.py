@@ -20,7 +20,7 @@ def create_empty_modality_table(name: str, length: int) -> pd.DataFrame:
     """Create an empty, three-level header DataFrame for a modality."""
     columns = pd.MultiIndex.from_product([[name], ["ipsi", "contra"], LNLS])
     empty = pd.DataFrame([[None] * len(columns)] * length, columns=columns)
-    empty[name, "info", "date"] = None
+    empty[name, "core", "date"] = None
     return empty
 
 
