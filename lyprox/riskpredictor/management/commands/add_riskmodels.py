@@ -90,7 +90,7 @@ class Command(base.BaseCommand):
         parser.add_argument(
             "--repo-name",
             type=str,
-            default="rmnldwg/lynference",
+            default="lycosystem/lynference",
             help="Name of git repository.",
         )
         parser.add_argument(

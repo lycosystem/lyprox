@@ -15,7 +15,7 @@ readme = "README.md"
 keywords = ["web app", "head and neck", "cancer", "radiation oncology", "lymph nodes", "metastases"]
 license = { text = "MIT"}
 dynamic = ["version"]
-requires-python = "~=3.10"
+requires-python = "~=3.10.16"
 dependencies = [
     "Django == 4.2.20",
     "django-phonenumber-field[phonenumbers] ~= 8.0",
@@ -32,10 +32,11 @@ dependencies = [
     "jinja2 ~= 3.1",
     "habanero == 2.2.0",
     "lyscripts",
+    "configargparse>=1.7.1",
 ]
 
 [project.urls]
-source = "https://github.com/rmnldwg/lyprox"
+source = "https://github.com/lycosystem/lyprox"
 documentation = "https://lycosystem.github.io/lyprox"
 
 [project.optional-dependencies]
@@ -99,4 +100,4 @@ privacy = [
 
 [tool.uv.sources]
 lydata = { path = "../lydata-package" }
-lyscripts = { git = "https://github.com/lycosystem/lyscripts", rev = "b76802269d6cdf3444d6fa43fba47683506d4dc5" }
+lyscripts = { git = "https://github.com/lycosystem/lyscripts", rev = "59352069b62633b87de9b3694a686b625d912f7a" }

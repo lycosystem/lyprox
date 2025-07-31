@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "repo_name",
-                    models.CharField(default="rmnldwg/lynference", max_length=50),
+                    models.CharField(default="lycosystem/lynference", max_length=50),
                 ),
                 ("ref", models.CharField(default="main", max_length=40)),
                 (

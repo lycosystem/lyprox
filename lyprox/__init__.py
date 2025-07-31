@@ -28,7 +28,7 @@ be modified, enhanced, or extended.
 
 .. _LyProX: https://lyprox.org
 .. _Django: https://djangoproject.com
-.. _source code: https://github.com/rmnldwg/lyprox
+.. _source code: https://github.com/lycosystem/lyprox
 
 Maintenance
 ===========
@@ -153,7 +153,7 @@ about populating the database:
     personalized risk on demand. Again, `joblib` is used to cache and speed up the
     results.
 
-.. _lyDATA: https://github.com/rmnldwg/lydata
+.. _lyDATA: https://github.com/lycosystem/lydata
 .. _pandas: https://pandas.pydata.org
 .. _SQLite3: https://sqlite.org
 

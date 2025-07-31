@@ -127,6 +127,7 @@ REFERENCES = [
     "10.1016/j.dib.2023.110020",
     "10.1038/s41598-024-66012-1",
     "10.1016/j.dib.2025.111546",
+    "10.1038/s41598-025-99978-7",
 ]
 """List of DOIs of our works on lymphatic tumor progression modelling and data."""
 
@@ -316,7 +317,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Database backup settings
 DBBACKUP_STORAGE = "django.core.files.storage.FileSystemStorage"
-DBBACKUP_STORAGE_OPTIONS = {"location": "/home/rmnldwg/backups/lyprox/"}
+DBBACKUP_STORAGE_OPTIONS = {"location": "/home/lycosystem/backups/lyprox/"}
 
 
 # Password validation
