@@ -27,8 +27,9 @@ import lydata.utils as lyutils
 import lydata.validator as lyvalidator
 import pandas as pd
 from django.db.models import QuerySet
-from lydata import C
-from lydata.accessor import NoneQ, QTypes
+from lydata import C, LyDataFrame
+from lydata.augmentor import combine_and_augment_levels
+from lydata.querier import CanExecute, NoneQ
 from pydantic import AfterValidator, BaseModel, computed_field, create_model
 
 from lyprox.dataexplorer.models import DatasetModel
@@ -47,7 +48,7 @@ def assemble_selected_modalities(names: list[str]) -> dict[str, lyutils.Modality
     }
 
 
-def get_risk_factor_query(cleaned_form: dict[str, Any]) -> QTypes:
+def get_risk_factor_query(cleaned_form: dict[str, Any]) -> CanExecute:
     """Create a query for the risk factors based on the cleaned form data."""
     risk_factor_query = C("t_stage").isin(cleaned_form["t_stage"])
     risk_factor_query &= C("subsite").isin(cleaned_form["subsite"])
@@ -63,7 +64,7 @@ def get_risk_factor_query(cleaned_form: dict[str, Any]) -> QTypes:
     return risk_factor_query
 
 
-def get_lnl_query(cleaned_form: dict[str, Any]) -> QTypes:
+def get_lnl_query(cleaned_form: dict[str, Any]) -> CanExecute:
     """Create a query for the LNLs based on the cleaned form data."""
     lnl_query = NoneQ()
     method = cleaned_form["modality_combine"]
@@ -78,10 +79,7 @@ def get_lnl_query(cleaned_form: dict[str, Any]) -> QTypes:
     return lnl_query
 
 
-def join_dataset_tables(
-    datasets: QuerySet | Sequence[DatasetModel],
-    method: Literal["max_llh", "rank"] = "max_llh",
-) -> pd.DataFrame:
+def join_dataset_tables(datasets: QuerySet | Sequence[DatasetModel]) -> pd.DataFrame:
     """Join the tables of the selected datasets into a single table.
 
     This iterates through the datasets and loads their respective `pd.DataFrame` tables.
@@ -100,7 +98,7 @@ def join_dataset_tables(
         tables.append(table)
 
     if len(tables) == 0:
-        schema = lyvalidator.construct_schema(modalities=[method])
+        schema = lyvalidator.construct_schema(modalities=["max_llh", "rank"])
         empty_table = pd.DataFrame(columns=schema.columns.keys())
         empty_table["dataset", "info", "name"] = []
         return empty_table
@@ -126,20 +124,20 @@ def execute_query(cleaned_form_data: dict[str, Any]) -> pd.DataFrame:
     """
     start_time = time.perf_counter()
     method = cleaned_form_data["modality_combine"]
-    joined_table = join_dataset_tables(
-        datasets=cleaned_form_data["datasets"],
-        method=method,
-    )
+    joined_table = join_dataset_tables(cleaned_form_data["datasets"])
 
     if len(joined_table) == 0:
         return joined_table
 
-    combined_inv_subtable = joined_table.ly.combine(
-        modalities=assemble_selected_modalities(names=cleaned_form_data["modalities"]),
+    assembled_modalities = assemble_selected_modalities(cleaned_form_data["modalities"])
+    combined_inv_subtable = combine_and_augment_levels(
+        diagnoses=[joined_table[mod] for mod in assembled_modalities.keys()],
+        specificities=[mod.spec for mod in assembled_modalities.values()],
+        sensitivities=[mod.sens for mod in assembled_modalities.values()],
         method=method,
     )
     combined_inv_table = pd.concat({method: combined_inv_subtable}, axis="columns")
-    combined_table = joined_table.join(combined_inv_table)
+    combined_table: LyDataFrame = joined_table.join(combined_inv_table)
     query = get_risk_factor_query(cleaned_form_data) & get_lnl_query(cleaned_form_data)
     queried_table = combined_table.ly.query(query)
     end_time = time.perf_counter()
@@ -181,7 +179,7 @@ def make_ensure_keys_validator(keys: list[KT]) -> EnsureKeysSignature:
 
     def ensure_keys(data: dict[KT, int]) -> dict[KT, int]:
         """Ensure all `keys` are present in the data."""
-        initial = {key: 0 for key in keys}
+        initial = dict.fromkeys(keys, 0)
         initial.update(data)
         return initial
 

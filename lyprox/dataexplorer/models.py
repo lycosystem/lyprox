@@ -59,7 +59,6 @@ def cached_load_dataframe(
         ref=ref,
     )
     df = lydataset.get_dataframe(use_github=True, token=GITHUB_TOKEN)
-    df = lyutils.infer_all_levels(df)
     df = ensure_lnls_in_modalities(df)
     logger.info(f"Loaded dataset {lydataset} into DataFrame ({df.shape=}).")
     return df
