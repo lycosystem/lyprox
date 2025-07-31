@@ -92,6 +92,7 @@ def style_table(patients: pd.DataFrame) -> Styler:
     patients = bring_consensus_col_to_left(patients)
     cols_to_drop = [
         ("patient", "#", "id"),
+        ("patient", "info", "id"),
         ("dataset", "info", "name"),
         ("total_dissected"),
         ("positive_dissected"),
