@@ -28,11 +28,10 @@ dependencies = [
     "dateparser ~= 1.2",
     "python-markdown-math ~= 0.8",
     "dotenv ~= 0.9",
-    "lydata == 0.2.5",
     "lymph-model == 1.3.3",
-    "lyscripts==1.0.0a7",
     "jinja2 ~= 3.1",
-    "habanero==2.2.0",
+    "habanero == 2.2.0",
+    "lyscripts",
 ]
 
 [project.urls]
@@ -97,3 +96,7 @@ privacy = [
     "HIDDEN:lyprox.middleware",
     "HIDDEN:lyprox.loggers",
 ]
+
+[tool.uv.sources]
+lydata = { path = "../lydata-package" }
+lyscripts = { git = "https://github.com/lycosystem/lyscripts", rev = "b76802269d6cdf3444d6fa43fba47683506d4dc5" }
