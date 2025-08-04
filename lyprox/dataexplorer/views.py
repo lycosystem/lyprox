@@ -72,7 +72,7 @@ def _get_form_and_patients_from_request(request: HttpRequest) -> FormAndPatients
 
     if not form.is_valid():
         logger.error(
-            f"Form not valid even after initializing with initial data: {form.errors}"
+            f"Form not valid even after initializing with initial data: {form.errors}",
         )
         return HttpResponseBadRequest("Form is not valid.")
 
@@ -182,8 +182,10 @@ def map_to_cell_classes(patients: pd.DataFrame) -> pd.DataFrame:
                 .reindex_like(patients[modality, side])
                 .fillna("is-danger has-text-weight-bold has-text-white")
             )
+            # Convert to boolean explicitly to avoid ValueError
+            condition = patients[modality, side].astype(bool)
             classes_map[modality, side] = classes_map[modality, side].where(
-                cond=patients[modality, side],
+                cond=condition,
                 other="is-success has-text-weight-bold has-text-white",
             )
             classes_map[modality, side] = classes_map[modality, side].where(
@@ -255,7 +257,7 @@ def style_table(patients: pd.DataFrame) -> Styler:
     stop_time = time.perf_counter()
     logger.info(
         f"Styling the table took {stop_time - start_time:.2f} seconds. "
-        f"Number of rows: {len(patients)}"
+        f"Number of rows: {len(patients)}",
     )
     return result
 

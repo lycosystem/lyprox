@@ -41,7 +41,7 @@
             {% if show_percent %}
               {{ stats.datasets|get_percent:checkbox.choice_label }}%
             {% else %}
-              {{ stats.datasets|get:checkbox.choice_label}}
+              {{ stats.datasets|get:checkbox.choice_label|default:0 }}
             {% endif %}
           </span>
         </div>
