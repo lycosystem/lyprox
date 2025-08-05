@@ -137,7 +137,11 @@ def execute_query(cleaned_form_data: dict[str, Any]) -> pd.DataFrame:
         method=method,
     )
     combined_inv_table = pd.concat({method: combined_inv_subtable}, axis="columns")
-    combined_table: LyDataFrame = joined_table.join(combined_inv_table)
+    combined_inv_table.index = joined_table.index
+    combined_table: LyDataFrame = pd.concat(
+        [joined_table, combined_inv_table],
+        axis="columns",
+    )
     query = get_risk_factor_query(cleaned_form_data) & get_lnl_query(cleaned_form_data)
     queried_table = combined_table.ly.query(query)
     end_time = time.perf_counter()
