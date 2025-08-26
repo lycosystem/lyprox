@@ -862,6 +862,20 @@ wheels = [
 ]
 
 [[package]]
+name = "fastapi"
+version = "0.116.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pydantic" },
+    { name = "starlette" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/78/d7/6c8b3bfe33eeffa208183ec037fee0cce9f7f024089ab1c5d12ef04bd27c/fastapi-0.116.1.tar.gz", hash = "sha256:ed52cbf946abfd70c5a0dccb24673f0670deeb517a88b3544d03c2a6bf283143", size = 296485 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e5/47/d63c60f59a59467fda0f93f46335c9d18526d7071f025cb5b89d5353ea42/fastapi-0.116.1-py3-none-any.whl", hash = "sha256:c46ac7c312df840f0c9e220f7964bada936781bc4e2e6eb71f1c4d7553786565", size = 95631 },
+]
+
+[[package]]
 name = "filelock"
 version = "3.18.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1288,8 +1302,8 @@ wheels = [
 
 [[package]]
 name = "lydata"
-version = "0.3.4.dev28"
-source = { git = "https://github.com/lycosystem/lydata-package?rev=116a70b433c6fd5947a6656619aa8a1d3dba58a2#116a70b433c6fd5947a6656619aa8a1d3dba58a2" }
+version = "0.3.4.dev75"
+source = { git = "https://github.com/lycosystem/lydata-package?rev=8469a26bea1d275b7ced43fbe3a269c8b30b60f4#8469a26bea1d275b7ced43fbe3a269c8b30b60f4" }
 dependencies = [
     { name = "loguru" },
     { name = "mistletoe" },
@@ -1365,7 +1379,7 @@ requires-dist = [
     { name = "habanero", specifier = "==2.2.0" },
     { name = "jinja2", specifier = "~=3.1" },
     { name = "lymph-model", specifier = "==1.3.3" },
-    { name = "lyscripts", git = "https://github.com/lycosystem/lyscripts?rev=74551fed623356bc26f59e5cad9a532e5756da2e" },
+    { name = "lyscripts", git = "https://github.com/lycosystem/lyscripts?rev=4d49a9f6db3e3017826968755267e2d21c608866" },
     { name = "markdown", specifier = "~=3.7" },
     { name = "myst-parser", marker = "extra == 'docs'" },
     { name = "pre-commit", marker = "extra == 'dev'" },
@@ -1378,12 +1392,13 @@ provides-extras = ["docs", "test", "dev"]
 
 [[package]]
 name = "lyscripts"
-version = "1.0.0rc4.dev9"
-source = { git = "https://github.com/lycosystem/lyscripts?rev=74551fed623356bc26f59e5cad9a532e5756da2e#74551fed623356bc26f59e5cad9a532e5756da2e" }
+version = "1.0.0rc4.dev19"
+source = { git = "https://github.com/lycosystem/lyscripts?rev=4d49a9f6db3e3017826968755267e2d21c608866#4d49a9f6db3e3017826968755267e2d21c608866" }
 dependencies = [
     { name = "corner" },
     { name = "deprecated" },
     { name = "emcee" },
+    { name = "fastapi" },
     { name = "h5py" },
     { name = "joblib" },
     { name = "loguru" },
@@ -1400,6 +1415,7 @@ dependencies = [
     { name = "rich-argparse" },
     { name = "scipy" },
     { name = "tables" },
+    { name = "uvicorn" },
     { name = "xlrd" },
 ]
 
@@ -2515,6 +2531,19 @@ wheels = [
 ]
 
 [[package]]
+name = "starlette"
+version = "0.47.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/15/b9/cc3017f9a9c9b6e27c5106cc10cc7904653c3eec0729793aec10479dd669/starlette-0.47.3.tar.gz", hash = "sha256:6bc94f839cc176c4858894f1f8908f0ab79dfec1a6b8402f6da9be26ebea52e9", size = 2584144 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ce/fd/901cfa59aaa5b30a99e16876f11abe38b59a1a2c51ffb3d7142bb6089069/starlette-0.47.3-py3-none-any.whl", hash = "sha256:89c0778ca62a76b826101e7c709e70680a1699ca7da6b44d38eb0a7e61fe4b51", size = 72991 },
+]
+
+[[package]]
 name = "tables"
 version = "3.10.1"
 source = { registry = "https://pypi.org/simple" }
@@ -2690,6 +2719,20 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz", hash = "sha256:051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20", size = 287152 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/88/75/311454fd3317aefe18415f04568edc20218453b709c63c58b9292c71be17/urllib3-2.2.0-py3-none-any.whl", hash = "sha256:ce3711610ddce217e6d113a2732fafad960a03fd0318c91faa79481e35c11224", size = 120877 },
+]
+
+[[package]]
+name = "uvicorn"
+version = "0.35.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+    { name = "h11" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5e/42/e0e305207bb88c6b8d3061399c6a961ffe5fbb7e2aa63c9234df7259e9cd/uvicorn-0.35.0.tar.gz", hash = "sha256:bc662f087f7cf2ce11a1d7fd70b90c9f98ef2e2831556dd078d131b96cc94a01", size = 78473 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d2/e2/dc81b1bd1dcfe91735810265e9d26bc8ec5da45b4c0f6237e286819194c3/uvicorn-0.35.0-py3-none-any.whl", hash = "sha256:197535216b25ff9b785e29a0b79199f55222193d47f820816e7da751e9bc8d4a", size = 66406 },
 ]
 
 [[package]]

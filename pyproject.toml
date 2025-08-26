@@ -32,7 +32,7 @@ dependencies = [
     "jinja2 ~= 3.1",
     "habanero == 2.2.0",
     "configargparse>=1.7.1",
-    "lyscripts @ git+https://github.com/lycosystem/lyscripts@74551fed623356bc26f59e5cad9a532e5756da2e",
+    "lyscripts @ git+https://github.com/lycosystem/lyscripts@4d49a9f6db3e3017826968755267e2d21c608866",
 ]
 
 [project.urls]
