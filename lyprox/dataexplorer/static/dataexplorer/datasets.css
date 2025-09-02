@@ -1,23 +1,9 @@
-input[type="checkbox"].checkbox:checked + label {
-    background-color: #005EA8;
-    color: white;
-}
-input[type="checkbox"].checkbox:checked:hover + label {
-    background-color: #005392;
-    color: white;
+input[type="checkbox"].checkbox:checked + .buttons.for-datasets > * {
+    box-shadow: 0 0 0 0.125em #005EA8;
+    z-index: 2;
 }
 
-input[type="checkbox"].checkbox:checked + .buttons label {
-    background-color: #005EA8;
-    color: white;
-}
-
-input[type="checkbox"].checkbox:checked:hover + .buttons label {
-    background-color: #005392;
-    color: white;
-}
-
-input[type="radio"].radio:checked + label {
-    background-color: #005EA8;
-    color: white;
+input[type="checkbox"].checkbox:checked:hover + .buttons.for-datasets > * {
+    box-shadow: 0 0 0 0.125em #005392;
+    z-index: 2;
 }

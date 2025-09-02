@@ -42,7 +42,7 @@ class MyMathExtension(MathExtension):
         self.config.update(
             {
                 "enable_dollar_delimiter": [True, "Enable single-dollar delimiter"],
-            },
+            }
         )
 
 
