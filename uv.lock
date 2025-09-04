@@ -1315,8 +1315,8 @@ wheels = [
 
 [[package]]
 name = "lydata"
-version = "0.3.4.dev75"
-source = { git = "https://github.com/lycosystem/lydata-package?rev=8469a26bea1d275b7ced43fbe3a269c8b30b60f4#8469a26bea1d275b7ced43fbe3a269c8b30b60f4" }
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "loguru" },
     { name = "mistletoe" },
@@ -1326,6 +1326,10 @@ dependencies = [
     { name = "pydantic" },
     { name = "pygithub" },
     { name = "roman" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a7/a6/f328b8790245891f1bc17b24ed71019a600e77de2614265059d1937b2b36/lydata-0.4.0.tar.gz", hash = "sha256:68c32d575af1c5c615030b197e4d528426833557d335aabc7c441b1e33819ae3", size = 118782 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9f/4d/5d95d1dd6547d624057d5c769cdd1ee5f0ab82fb258115724732aeaef7ce/lydata-0.4.0-py3-none-any.whl", hash = "sha256:891162aafc1095284135041eef880dde9289db46aa5508a69401685d96a787f3", size = 33267 },
 ]
 
 [[package]]
@@ -1394,7 +1398,7 @@ requires-dist = [
     { name = "habanero", specifier = "==2.2.0" },
     { name = "jinja2", specifier = "~=3.1" },
     { name = "lymph-model", specifier = "==1.3.3" },
-    { name = "lyscripts", git = "https://github.com/lycosystem/lyscripts?rev=4d49a9f6db3e3017826968755267e2d21c608866" },
+    { name = "lyscripts", specifier = "==1.0.0" },
     { name = "markdown", specifier = "~=3.7" },
     { name = "myst-parser", marker = "extra == 'docs'" },
     { name = "pre-commit", marker = "extra == 'dev'" },
@@ -1407,8 +1411,8 @@ provides-extras = ["docs", "test", "dev"]
 
 [[package]]
 name = "lyscripts"
-version = "1.0.0rc4.dev19"
-source = { git = "https://github.com/lycosystem/lyscripts?rev=4d49a9f6db3e3017826968755267e2d21c608866#4d49a9f6db3e3017826968755267e2d21c608866" }
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "corner" },
     { name = "deprecated" },
@@ -1432,6 +1436,10 @@ dependencies = [
     { name = "tables" },
     { name = "uvicorn" },
     { name = "xlrd" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4e/6f/d735b69896112ef218e6350ddb640a9d23a4dd81d7d9fe63bab34878b3e2/lyscripts-1.0.0.tar.gz", hash = "sha256:5c2265784b021436fda4beeb7e0278b30766e2abd1eb8a589d8d8c600dfc16f7", size = 481532 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f4/9c/9d7a7488576383e0c451532fe6ecb0cf6134166587fa3fa79775acf8dcd9/lyscripts-1.0.0-py3-none-any.whl", hash = "sha256:44f7188f8cb461268f0eee9513c92c20c7d6c773b8053004b224d19d69a2ff5d", size = 68750 },
 ]
 
 [[package]]
