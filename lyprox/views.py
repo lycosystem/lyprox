@@ -11,10 +11,10 @@ from pydantic import BaseModel
 
 from lyprox.settings import (
     CROSSREF,
-    GITHUB,
     JOBLIB_MEMORY,
     REFERENCES,
 )
+from lyprox.utils import cached_get_repo
 
 logger = logging.getLogger(__name__)
 
@@ -28,19 +28,26 @@ def add_lycosystem_repos_to_context(
     context["lycosystem_repos"] = []
 
     for repo_id, img_path in repo_ids_and_img_paths:
-        repo = GITHUB.get_repo(repo_id)
-        context["lycosystem_repos"].append(
-            {
+        try:
+            repo = cached_get_repo(repo_id=repo_id)
+            repo_metadata = {
                 "owner": repo.owner.login,
                 "name": repo.name,
                 "description": repo.description,
                 "url": repo.html_url,
-                "docs_url": f"https://{repo.owner.login}.github.io/{repo.name}/",
-                "num_stars": repo.stargazers_count,
-                "num_forks": repo.forks_count,
                 "social_card_url": f"https://github.com/{repo_id}/blob/{ref}/{img_path}?raw=true",
             }
-        )
+        except Exception as exc:
+            logger.error(f"Error fetching repository {repo_id}: {exc}")
+            repo_metadata = {
+                "owner": repo_id.split("/")[0],
+                "name": repo_id.split("/")[1],
+                "description": "ERROR: Could not fetch repository information.",
+                "url": f"https://github.com/{repo_id}",
+                "social_card_url": "https://placehold.co/1280x640?text=ERROR:\\nsocial+card+not+found",
+            }
+
+        context["lycosystem_repos"].append(repo_metadata)
 
     return context
 

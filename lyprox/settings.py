@@ -128,6 +128,7 @@ REFERENCES = [
     "10.1038/s41598-024-66012-1",
     "10.1016/j.dib.2025.111546",
     "10.1038/s41598-025-99978-7",
+    "10.1088/1361-6560/adc235",
 ]
 """List of DOIs of our works on lymphatic tumor progression modelling and data."""
 
@@ -214,8 +215,8 @@ def set_logging(log_level: LogLevelType) -> dict:
         "disanle_existing_loggers": False,
         "formatters": {
             "default": {
-                "format": "[%(asctime)s] %(levelname)-10s %(name)-40s %(message)s"
-            }
+                "format": "[%(asctime)s] %(levelname)-10s %(name)-40s %(message)s",
+            },
         },
         "handlers": {
             "console": {
@@ -310,7 +311,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }
+    },
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
@@ -324,7 +325,7 @@ DBBACKUP_STORAGE_OPTIONS = {"location": "/home/lycosystem/backups/lyprox/"}
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"  # noqa: E501
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa: E501
     },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},

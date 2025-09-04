@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.1.3"></a>
+
+## [1.1.3] - 2025-06-10
+
+### 🐛 Bug Fixes
+
+- Add missing comma in initial users JSON
+- `add_datasets` robust against bad credentials
+
+### 💼 Other
+
+- Use TTL cache for fetched repository contents
+
+<a name="1.1.2"></a>
+
+## [1.1.2] - 2025-06-10
+
+### 🐛 Bug Fixes
+
+- Update lymph repo IDs
+
+<a name="1.1.1"></a>
+
+## [1.1.1] - 2025-04-25
+
+### 💼 Other
+
+- Modularize landing page
+
+### 📚 Documentation
+
+- Correct gh pages links to docs
+
+### ⚙️ Miscellaneous Tasks
+
+- Update docs deployment action
+
 <a name="1.1.0"></a>
 
 ## [1.1.0] - 2025-04-25
@@ -10,7 +47,7 @@ All notable changes to this project will be documented in this file.
 
 - Get admin email address from environment variables
 - Add our publications to landing page's context from list of DOIs
-- Force update of browser's static file cache with appended version nummber
+- Force update of browser's static file cache with appended version number
 
 ### 🐛 Bug Fixes
 
@@ -446,46 +483,50 @@ Commits before the 2nd of March 2023 did not use conventional commits and no cha
 - [0.0.2] - 2021-10-04
 - 0.0.1 - 2021-10-04
 
-[1.0.3]: https://github.com/lycosystem/lyprox/compare/1.0.2...1.0.3
-[1.0.2]: https://github.com/lycosystem/lyprox/compare/1.0.1...1.0.2
-[1.0.1]: https://github.com/lycosystem/lyprox/compare/1.0.0...1.0.1
-[1.0.0]: https://github.com/lycosystem/lyprox/compare/0.4.6...1.0.0
-[0.4.6]: https://github.com/lycosystem/lyprox/compare/0.4.5...0.4.6
-[0.4.5]: https://github.com/lycosystem/lyprox/compare/0.4.4...0.4.5
-[0.4.4]: https://github.com/lycosystem/lyprox/compare/0.4.3...0.4.4
-[0.4.3]: https://github.com/lycosystem/lyprox/compare/0.4.2...0.4.3
-[0.4.2]: https://github.com/lycosystem/lyprox/compare/0.4.1...0.4.2
-[0.4.1]: https://github.com/lycosystem/lyprox/compare/0.4.0...0.4.1
-[0.4.0]: https://github.com/lycosystem/lyprox/compare/0.3.4...0.4.0
-[0.3.4]: https://github.com/lycosystem/lyprox/compare/0.3.3...0.3.4
-[0.3.3]: https://github.com/lycosystem/lyprox/compare/0.3.2...0.3.3
-[0.3.2]: https://github.com/lycosystem/lyprox/compare/0.3.1...0.3.2
-[0.3.1]: https://github.com/lycosystem/lyprox/compare/0.3.0...0.3.1
-[0.3.0]: https://github.com/lycosystem/lyprox/compare/0.2.17...0.3.0
-[0.2.17]: https://github.com/lycosystem/lyprox/compare/0.2.16...0.2.17
-[0.2.16]: https://github.com/lycosystem/lyprox/compare/0.2.15...0.2.16
-[0.2.15]: https://github.com/lycosystem/lyprox/compare/0.2.14...0.2.15
-[0.2.14]: https://github.com/lycosystem/lyprox/compare/0.2.13...0.2.14
-[0.2.13]: https://github.com/lycosystem/lyprox/compare/0.2.12...0.2.13
-[0.2.12]: https://github.com/lycosystem/lyprox/compare/0.2.11...0.2.12
-[0.2.11]: https://github.com/lycosystem/lyprox/compare/0.2.10...0.2.11
-[0.2.10]: https://github.com/lycosystem/lyprox/compare/0.2.9...0.2.10
-[0.2.9]: https://github.com/lycosystem/lyprox/compare/0.2.8...0.2.9
-[0.2.8]: https://github.com/lycosystem/lyprox/compare/0.2.7...0.2.8
-[0.2.7]: https://github.com/lycosystem/lyprox/compare/0.2.6...0.2.7
-[0.2.6]: https://github.com/lycosystem/lyprox/compare/0.2.5...0.2.6
-[0.2.5]: https://github.com/lycosystem/lyprox/compare/0.2.4...0.2.5
-[0.2.4]: https://github.com/lycosystem/lyprox/compare/0.2.3...0.2.4
-[0.2.3]: https://github.com/lycosystem/lyprox/compare/0.2.2...0.2.3
-[0.2.2]: https://github.com/lycosystem/lyprox/compare/0.2.1...0.2.2
-[0.2.1]: https://github.com/lycosystem/lyprox/compare/0.2.0...0.2.1
-[0.2.0]: https://github.com/lycosystem/lyprox/compare/0.1.4...0.2.0
-[0.1.4]: https://github.com/lycosystem/lyprox/compare/0.1.3...0.1.4
-[0.1.3]: https://github.com/lycosystem/lyprox/compare/0.1.2...0.1.3
-[0.1.2]: https://github.com/lycosystem/lyprox/compare/0.1.1...0.1.2
-[0.1.1]: https://github.com/lycosystem/lyprox/compare/0.1.0...0.1.1
-[0.1.0]: https://github.com/lycosystem/lyprox/compare/0.0.2...0.1.0
-[0.0.2]: https://github.com/lycosystem/lyprox/compare/0.0.1...0.0.2
+[1.1.3]: https://github.com/rmnldwg/lyprox/compare/1.1.2...1.1.3
+[1.1.2]: https://github.com/rmnldwg/lyprox/compare/1.1.1...1.1.2
+[1.1.1]: https://github.com/rmnldwg/lyprox/compare/1.1.0...1.1.1
+[1.1.0]: https://github.com/rmnldwg/lyprox/compare/1.0.3...1.1.0
+[1.0.3]: https://github.com/rmnldwg/lyprox/compare/1.0.2...1.0.3
+[1.0.2]: https://github.com/rmnldwg/lyprox/compare/1.0.1...1.0.2
+[1.0.1]: https://github.com/rmnldwg/lyprox/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/rmnldwg/lyprox/compare/0.4.6...1.0.0
+[0.4.6]: https://github.com/rmnldwg/lyprox/compare/0.4.5...0.4.6
+[0.4.5]: https://github.com/rmnldwg/lyprox/compare/0.4.4...0.4.5
+[0.4.4]: https://github.com/rmnldwg/lyprox/compare/0.4.3...0.4.4
+[0.4.3]: https://github.com/rmnldwg/lyprox/compare/0.4.2...0.4.3
+[0.4.2]: https://github.com/rmnldwg/lyprox/compare/0.4.1...0.4.2
+[0.4.1]: https://github.com/rmnldwg/lyprox/compare/0.4.0...0.4.1
+[0.4.0]: https://github.com/rmnldwg/lyprox/compare/0.3.4...0.4.0
+[0.3.4]: https://github.com/rmnldwg/lyprox/compare/0.3.3...0.3.4
+[0.3.3]: https://github.com/rmnldwg/lyprox/compare/0.3.2...0.3.3
+[0.3.2]: https://github.com/rmnldwg/lyprox/compare/0.3.1...0.3.2
+[0.3.1]: https://github.com/rmnldwg/lyprox/compare/0.3.0...0.3.1
+[0.3.0]: https://github.com/rmnldwg/lyprox/compare/0.2.17...0.3.0
+[0.2.17]: https://github.com/rmnldwg/lyprox/compare/0.2.16...0.2.17
+[0.2.16]: https://github.com/rmnldwg/lyprox/compare/0.2.15...0.2.16
+[0.2.15]: https://github.com/rmnldwg/lyprox/compare/0.2.14...0.2.15
+[0.2.14]: https://github.com/rmnldwg/lyprox/compare/0.2.13...0.2.14
+[0.2.13]: https://github.com/rmnldwg/lyprox/compare/0.2.12...0.2.13
+[0.2.12]: https://github.com/rmnldwg/lyprox/compare/0.2.11...0.2.12
+[0.2.11]: https://github.com/rmnldwg/lyprox/compare/0.2.10...0.2.11
+[0.2.10]: https://github.com/rmnldwg/lyprox/compare/0.2.9...0.2.10
+[0.2.9]: https://github.com/rmnldwg/lyprox/compare/0.2.8...0.2.9
+[0.2.8]: https://github.com/rmnldwg/lyprox/compare/0.2.7...0.2.8
+[0.2.7]: https://github.com/rmnldwg/lyprox/compare/0.2.6...0.2.7
+[0.2.6]: https://github.com/rmnldwg/lyprox/compare/0.2.5...0.2.6
+[0.2.5]: https://github.com/rmnldwg/lyprox/compare/0.2.4...0.2.5
+[0.2.4]: https://github.com/rmnldwg/lyprox/compare/0.2.3...0.2.4
+[0.2.3]: https://github.com/rmnldwg/lyprox/compare/0.2.2...0.2.3
+[0.2.2]: https://github.com/rmnldwg/lyprox/compare/0.2.1...0.2.2
+[0.2.1]: https://github.com/rmnldwg/lyprox/compare/0.2.0...0.2.1
+[0.2.0]: https://github.com/rmnldwg/lyprox/compare/0.1.4...0.2.0
+[0.1.4]: https://github.com/rmnldwg/lyprox/compare/0.1.3...0.1.4
+[0.1.3]: https://github.com/rmnldwg/lyprox/compare/0.1.2...0.1.3
+[0.1.2]: https://github.com/rmnldwg/lyprox/compare/0.1.1...0.1.2
+[0.1.1]: https://github.com/rmnldwg/lyprox/compare/0.1.0...0.1.1
+[0.1.0]: https://github.com/rmnldwg/lyprox/compare/0.0.2...0.1.0
+[0.0.2]: https://github.com/rmnldwg/lyprox/compare/0.0.1...0.0.2
 
 [#15]: https://github.com/lycosystem/lyprox/issues/15
 [#89]: https://github.com/lycosystem/lyprox/issues/89
