@@ -433,6 +433,16 @@
         
 
         
+            <div class="itemName"><code><a href="lyprox.dataexplorer.utils.html" class="internal-link" title="lyprox.dataexplorer.utils">utils</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="lyprox.dataexplorer.views.html" class="internal-link" title="lyprox.dataexplorer.views">views</a></code>
             </div>
         
@@ -496,7 +506,7 @@ well as compute statistics from a queried/filtered patient table to be displayed
 main dashboard of LyProX.</p>
 <p>In the <code><a href="lyprox.dataexplorer.views.html" class="internal-link" title="lyprox.dataexplorer.views">views</a></code>, the <code><a href="#execute_query" class="internal-link" title="lyprox.dataexplorer.query.execute_query">execute_query</a></code> function is called with the cleaned data from the
 <code><a href="lyprox.dataexplorer.forms.DataexplorerForm.html" class="internal-link" title="lyprox.dataexplorer.forms.DataexplorerForm">DataexplorerForm</a></code>. This <code><a href="#execute_query" class="internal-link" title="lyprox.dataexplorer.query.execute_query">execute_query</a></code> function then creates a combined query using
-the fancy <code><a href="https://lydata.readthedocs.io/latest/accessor.html#lydata.accessor.C" class="intersphinx-link">lydata.accessor.C</a></code> objects from <a class="rst-external rst-reference" href="https://lydata.readthedocs.io/stable/" target="_top">lydata</a>. These classes allow arbitrary
+the fancy <code>lydata.accessor.C</code> objects from <a class="rst-external rst-reference" href="https://lydata.readthedocs.io/stable/" target="_top">lydata</a>. These classes allow arbitrary
 combinations of deferred queries to be created and only later be executed.</p>
 <p>After executing the query, the filtered dataset is used to compute <code><a href="#Statistics" class="internal-link" title="lyprox.dataexplorer.query.Statistics">Statistics</a></code> using
 the <code><a href="lyprox.dataexplorer.query.BaseStatistics.html#from_table" class="internal-link" title="lyprox.dataexplorer.query.BaseStatistics.from_table">from_table</a></code> classmethod. This <code><a href="https://docs.pydantic.dev/latest/api/base_model/#pydantic.BaseModel" class="intersphinx-link">pydantic.BaseModel</a></code> has similar fields to the
@@ -660,7 +670,7 @@ should be passed to this function as the <tt class="rst-docutils rst-literal">cl
 <p>Based on
 this cleaned form data, the involvement data from different modalities is combined
 using the <a class="rst-external rst-reference" href="https://lydata.readthedocs.io/stable/" target="_top">lydata</a> accessor method <code><a href="https://lydata.readthedocs.io/latest/accessor.html#lydata.accessor.LyDataAccessor.combine" class="intersphinx-link">lydata.accessor.LyDataAccessor.combine</a></code>. Then,
-a query is created using the <code><a href="https://lydata.readthedocs.io/latest/accessor.html#lydata.accessor.C" class="intersphinx-link">lydata.accessor.C</a></code> objects and executed on the
+a query is created using the <code>lydata.accessor.C</code> objects and executed on the
 dataset using the <code><a href="https://lydata.readthedocs.io/latest/accessor.html#lydata.accessor.LyDataAccessor.query" class="intersphinx-link">lydata.accessor.LyDataAccessor.query</a></code> method. The resulting
 filtered dataset is returned.</p>
 </div>
@@ -677,7 +687,7 @@ filtered dataset is returned.</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">get_lnl_query</span><span class="function-signature">(<span class="rst-sig-param">cleaned_form: <code>dict[<wbr></wbr>str, <wbr></wbr>Any]</code></span>) -&gt; <code><a href="https://lydata.readthedocs.io/latest/accessor.html#lydata.accessor.QTypes" class="intersphinx-link">QTypes</a></code>:</span>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">get_lnl_query</span><span class="function-signature">(<span class="rst-sig-param">cleaned_form: <code>dict[<wbr></wbr>str, <wbr></wbr>Any]</code></span>) -&gt; <code>CanExecute</code>:</span>
     
     <a class="headerLink" href="#get_lnl_query" title="lyprox.dataexplorer.query.get_lnl_query">
       
@@ -701,7 +711,7 @@ filtered dataset is returned.</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">get_risk_factor_query</span><span class="function-signature">(<span class="rst-sig-param">cleaned_form: <code>dict[<wbr></wbr>str, <wbr></wbr>Any]</code></span>) -&gt; <code><a href="https://lydata.readthedocs.io/latest/accessor.html#lydata.accessor.QTypes" class="intersphinx-link">QTypes</a></code>:</span>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">get_risk_factor_query</span><span class="function-signature">(<span class="rst-sig-param">cleaned_form: <code>dict[<wbr></wbr>str, <wbr></wbr>Any]</code></span>) -&gt; <code>CanExecute</code>:</span>
     
     <a class="headerLink" href="#get_risk_factor_query" title="lyprox.dataexplorer.query.get_risk_factor_query">
       
@@ -725,7 +735,7 @@ filtered dataset is returned.</p>
   <div class="functionHeader">
     
     
-    <span class="py-keyword">def</span>&#160;<span class="py-defname">join_dataset_tables</span><span class="function-signature long-signature">(<span class="rst-sig-param">datasets: <code>QuerySet | Sequence[<wbr></wbr><a href="lyprox.dataexplorer.models.DatasetModel.html" class="internal-link" title="lyprox.dataexplorer.models.DatasetModel">DatasetModel</a>]</code>, </span><span class="rst-sig-param">method: <code>Literal[<wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">max_llh</span><span class="rst-variable-quote">'</span>, <wbr></wbr><span class="rst-variable-quote">'</span><span class="rst-variable-string">rank</span><span class="rst-variable-quote">'</span>]</code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">max_llh</span><span class="rst-variable-quote">'</span></span>) -&gt; <code><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" class="intersphinx-link">pd.DataFrame</a></code>:</span>
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">join_dataset_tables</span><span class="function-signature">(<span class="rst-sig-param">datasets: <code>QuerySet | Sequence[<wbr></wbr><a href="lyprox.dataexplorer.models.DatasetModel.html" class="internal-link" title="lyprox.dataexplorer.models.DatasetModel">DatasetModel</a>]</code></span>) -&gt; <code><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" class="intersphinx-link">pd.DataFrame</a></code>:</span>
     
     <a class="headerLink" href="#join_dataset_tables" title="lyprox.dataexplorer.query.join_dataset_tables">
       
@@ -737,7 +747,7 @@ filtered dataset is returned.</p>
     
     <div><p>Join the tables of the selected datasets into a single table.</p>
 <p>This iterates through the datasets and loads their respective <code><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" class="intersphinx-link">pd.DataFrame</a></code> tables.
-It also adds a column <tt class="rst-docutils rst-literal">["dataset", "info", "name"]</tt> to the table to keep track of
+It also adds a column <tt class="rst-docutils rst-literal">["dataset", "core", "name"]</tt> to the table to keep track of
 which dataset a row belongs to. Finally, it concatenates all tables into a single
 table and returns it.</p>
 <p>In case the <tt class="rst-docutils rst-literal">datasets</tt> are empty, a likewise empty table is created with all the
@@ -1067,7 +1077,7 @@ information that one can compute statistics on.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for LyProX,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.4.0 at 2025-07-25 14:12:27.
+    25.4.0 at 2025-09-05 10:47:04.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
