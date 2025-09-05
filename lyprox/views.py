@@ -164,8 +164,8 @@ def index(request):
         context=context,
         repo_ids_and_img_paths=[
             ("lycosystem/lymph", "github-social-card.png"),
-            ("lycosystem/lyprox", "lyprox/static/github-social-card.png"),
-            ("rmnldwg/lydata", "github-social-card.png"),
+            ("lycosystem/lyprox", "github-social-card.png"),
+            ("lycosystem/lydata", "github-social-card.png"),
             ("lycosystem/lyscripts", "github-social-card.png"),
             ("lycosystem/lymixture", "github-social-card.png"),
         ],

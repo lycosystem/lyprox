@@ -109,7 +109,14 @@ class ThreeWayToggleWidget(forms.RadioSelect):
         return context
 
     def create_option(
-        self, name, value, label, selected, index, subindex=None, attrs=None
+        self,
+        name,
+        value,
+        label,
+        selected,
+        index,
+        subindex=None,
+        attrs=None,
     ):
         """Pass the option attributes to the actual options."""
         return super().create_option(
@@ -259,7 +266,8 @@ class DataexplorerForm(FormLoggerMixin, forms.Form):
     """Patients from which datasets to include in the query."""
 
     smoke = ThreeWayToggle(
-        widget_label="smoking status", widget_tooltip="Select smokers or non-smokers"
+        widget_label="smoking status",
+        widget_tooltip="Select smokers or non-smokers",
     )
     """Select patients that are smokers, non-smokers, or unknown."""
 
@@ -279,7 +287,8 @@ class DataexplorerForm(FormLoggerMixin, forms.Form):
     """Only include patients with the selected T-stages."""
 
     is_n_plus = ThreeWayToggle(
-        widget_label="N+ vs N0", widget_tooltip="Select all N+ (or N0) patients"
+        widget_label="N+ vs N0",
+        widget_tooltip="Select all N+ (or N0) patients",
     )
     """Select patients with N+ or N0 status."""
 
@@ -350,11 +359,11 @@ class DataexplorerForm(FormLoggerMixin, forms.Form):
             for lnl in LNLS:
                 if lnl in ["I", "II", "V"]:
                     self.fields[f"{side}_{lnl}"] = ThreeWayToggle(
-                        widget_option_attrs={"onclick": "superClickHandler(this)"}
+                        widget_option_attrs={"onclick": "superClickHandler(this)"},
                     )
                 elif "a" in lnl or "b" in lnl:
                     self.fields[f"{side}_{lnl}"] = ThreeWayToggle(
-                        widget_option_attrs={"onclick": "subClickHandler(this)"}
+                        widget_option_attrs={"onclick": "subClickHandler(this)"},
                     )
                 else:
                     self.fields[f"{side}_{lnl}"] = ThreeWayToggle()

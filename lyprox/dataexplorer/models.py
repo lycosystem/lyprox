@@ -3,18 +3,44 @@
 import logging
 import time
 
+import lydata.utils as lyutils
 import pandas as pd
 from django.db import models
 from github import Repository
 from lydata.loader import LyDataset
-from lydata.utils import infer_all_levels
 
 from lyprox import loggers
 from lyprox.accounts.models import Institution
-from lyprox.settings import GITHUB_TOKEN, JOBLIB_MEMORY
+from lyprox.settings import GITHUB_TOKEN, JOBLIB_MEMORY, LNLS
 from lyprox.utils import cached_get_repo
 
 logger = logging.getLogger(__name__)
+
+
+def create_empty_modality_table(name: str, length: int) -> pd.DataFrame:
+    """Create an empty, three-level header DataFrame for a modality."""
+    columns = pd.MultiIndex.from_product([[name], ["ipsi", "contra"], LNLS])
+    empty = pd.DataFrame([[None] * len(columns)] * length, columns=columns)
+    empty[name, "core", "date"] = None
+    return empty
+
+
+def ensure_lnls_in_modalities(dataset: pd.DataFrame) -> pd.DataFrame:
+    """Make sure every modality contains all LNLs."""
+    dataset = dataset.copy()
+
+    for modality in lyutils.get_default_modalities():
+        empty = create_empty_modality_table(modality, len(dataset))
+        updated = empty
+
+        if modality in dataset.columns:
+            original = dataset[[modality]]
+            updated = lyutils.update_and_expand(left=original, right=empty)
+
+        dataset = dataset.drop(columns=modality, errors="ignore")
+        dataset = dataset.join(updated)
+
+    return dataset
 
 
 @JOBLIB_MEMORY.cache
@@ -34,7 +60,7 @@ def cached_load_dataframe(
         ref=ref,
     )
     df = lydataset.get_dataframe(use_github=True, token=GITHUB_TOKEN)
-    df = infer_all_levels(df)
+    df = ensure_lnls_in_modalities(df)
     logger.info(f"Loaded dataset {lydataset} into DataFrame ({df.shape=}).")
     return df
 

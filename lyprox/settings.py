@@ -215,8 +215,8 @@ def set_logging(log_level: LogLevelType) -> dict:
         "disanle_existing_loggers": False,
         "formatters": {
             "default": {
-                "format": "[%(asctime)s] %(levelname)-10s %(name)-40s %(message)s"
-            }
+                "format": "[%(asctime)s] %(levelname)-10s %(name)-40s %(message)s",
+            },
         },
         "handlers": {
             "console": {
@@ -311,21 +311,21 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }
+    },
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Database backup settings
 DBBACKUP_STORAGE = "django.core.files.storage.FileSystemStorage"
-DBBACKUP_STORAGE_OPTIONS = {"location": "/home/rmnldwg/backups/lyprox/"}
+DBBACKUP_STORAGE_OPTIONS = {"location": "/home/lycosystem/backups/lyprox/"}
 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"  # noqa: E501
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa: E501
     },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},

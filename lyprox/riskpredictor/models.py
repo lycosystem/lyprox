@@ -166,7 +166,7 @@ class CheckpointModel(loggers.ModelLoggerMixin, models.Model):
     .. _DVC: https://dvc.org/
     """
 
-    repo_name = models.CharField(max_length=50, default="rmnldwg/lynference")
+    repo_name = models.CharField(max_length=50, default="lycosystem/lynference")
     """Identifier of the GitHub repository that contains the trained model."""
     ref = models.CharField(max_length=40, default="main")
     """Git reference of the trained model. E.g., a commit hash, tag, or branch name."""

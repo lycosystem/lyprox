@@ -454,7 +454,7 @@ With a lot of trial end error I have improved the setup process to a point where
 
 Commits before the 2nd of March 2023 did not use conventional commits and no changelog was maintained. For completeness, we give the links to the respective diffs of previous releases below.
 
-[lynference]: https://github.com/rmnldwg/lynference
+[lynference]: https://github.com/lycosystem/lynference
 
 - [0.3.0] - 2022-07-05
 - [0.2.17] - 2022-06-02
@@ -528,22 +528,22 @@ Commits before the 2nd of March 2023 did not use conventional commits and no cha
 [0.1.0]: https://github.com/rmnldwg/lyprox/compare/0.0.2...0.1.0
 [0.0.2]: https://github.com/rmnldwg/lyprox/compare/0.0.1...0.0.2
 
-[#15]: https://github.com/rmnldwg/lyprox/issues/15
-[#89]: https://github.com/rmnldwg/lyprox/issues/89
-[#94]: https://github.com/rmnldwg/lyprox/issues/94
-[#95]: https://github.com/rmnldwg/lyprox/issues/95
-[#96]: https://github.com/rmnldwg/lyprox/issues/96
-[#97]: https://github.com/rmnldwg/lyprox/issues/97
-[#99]: https://github.com/rmnldwg/lyprox/issues/99
-[#100]: https://github.com/rmnldwg/lyprox/issues/100
-[#103]: https://github.com/rmnldwg/lyprox/issues/103
-[#104]: https://github.com/rmnldwg/lyprox/issues/104
-[#108]: https://github.com/rmnldwg/lyprox/issues/108
-[#109]: https://github.com/rmnldwg/lyprox/issues/109
-[#110]: https://github.com/rmnldwg/lyprox/issues/110
-[#111]: https://github.com/rmnldwg/lyprox/issues/111
-[#115]: https://github.com/rmnldwg/lyprox/issues/115
-[#119]: https://github.com/rmnldwg/lyprox/issues/119
-[#121]: https://github.com/rmnldwg/lyprox/issues/121
-[#124]: https://github.com/rmnldwg/lyprox/issues/124
-[#125]: https://github.com/rmnldwg/lyprox/issues/125
+[#15]: https://github.com/lycosystem/lyprox/issues/15
+[#89]: https://github.com/lycosystem/lyprox/issues/89
+[#94]: https://github.com/lycosystem/lyprox/issues/94
+[#95]: https://github.com/lycosystem/lyprox/issues/95
+[#96]: https://github.com/lycosystem/lyprox/issues/96
+[#97]: https://github.com/lycosystem/lyprox/issues/97
+[#99]: https://github.com/lycosystem/lyprox/issues/99
+[#100]: https://github.com/lycosystem/lyprox/issues/100
+[#103]: https://github.com/lycosystem/lyprox/issues/103
+[#104]: https://github.com/lycosystem/lyprox/issues/104
+[#108]: https://github.com/lycosystem/lyprox/issues/108
+[#109]: https://github.com/lycosystem/lyprox/issues/109
+[#110]: https://github.com/lycosystem/lyprox/issues/110
+[#111]: https://github.com/lycosystem/lyprox/issues/111
+[#115]: https://github.com/lycosystem/lyprox/issues/115
+[#119]: https://github.com/lycosystem/lyprox/issues/119
+[#121]: https://github.com/lycosystem/lyprox/issues/121
+[#124]: https://github.com/lycosystem/lyprox/issues/124
+[#125]: https://github.com/lycosystem/lyprox/issues/125
