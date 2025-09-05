@@ -7,6 +7,7 @@ from typing import Any
 import lydata.utils as lyutils
 import pandas as pd
 from pandas.io.formats.style import Styler
+from pydantic import BaseModel
 
 from lyprox.accounts.models import Institution
 from lyprox.settings import LNLS
@@ -126,6 +127,19 @@ def style_table(patients: pd.DataFrame) -> Styler:
     stop_time = time.perf_counter()
     logger.info(
         f"Styling the table took {stop_time - start_time:.2f} seconds. "
-        f"Number of rows: {len(patients)}"
+        f"Number of rows: {len(patients)}",
     )
+    return result
+
+
+def get_nested_fields(model: type[BaseModel]) -> dict[str, Any]:
+    """Recursively get all fields of a Pydantic model, including nested models."""
+    result = {}
+
+    for name, field in model.model_fields.items():
+        if issubclass(field.annotation, BaseModel):
+            result[name] = get_nested_fields(field.annotation)
+        else:
+            result[name] = field
+
     return result

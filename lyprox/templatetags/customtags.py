@@ -42,7 +42,7 @@ class MyMathExtension(MathExtension):
         self.config.update(
             {
                 "enable_dollar_delimiter": [True, "Enable single-dollar delimiter"],
-            }
+            },
         )
 
 
@@ -72,7 +72,10 @@ def barplot_css(value_counts: dict[Any, int], argstr: str) -> float:
     key = safe_eval(keystr)
     width = float(widthstr)
     total = sum(list(value_counts.values()))
-    return width * value_counts[key] / total
+    try:
+        return width * value_counts[key] / total
+    except ZeroDivisionError:
+        return 0.0
 
 
 N = TypeVar("N", int, float)

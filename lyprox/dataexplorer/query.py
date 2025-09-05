@@ -23,6 +23,7 @@ from collections.abc import Callable, Sequence
 from typing import Annotated, Any, Literal, TypeVar
 
 import lydata  # noqa: F401
+import lydata.schema as lyschema
 import lydata.utils as lyutils
 import lydata.validator as lyvalidator
 import pandas as pd
@@ -34,6 +35,7 @@ from pydantic import AfterValidator, BaseModel, computed_field, create_model
 
 from lyprox.dataexplorer.models import DatasetModel
 from lyprox.dataexplorer.subsites import Subsites
+from lyprox.dataexplorer.utils import get_nested_fields
 from lyprox.settings import LNLS
 
 logger = logging.getLogger(__name__)
@@ -98,8 +100,12 @@ def join_dataset_tables(datasets: QuerySet | Sequence[DatasetModel]) -> pd.DataF
         tables.append(table)
 
     if len(tables) == 0:
-        schema = lyvalidator.construct_schema(modalities=["max_llh", "rank"])
-        empty_table = pd.DataFrame(columns=schema.columns.keys())
+        modalities = list(lyutils.get_default_modalities().keys())
+        modalities += ["max_llh", "rank"]
+        schema = lyschema.create_full_record_model(modalities=modalities)
+        nested_field_info = get_nested_fields(schema)
+        columns = lyvalidator.flatten(nested_field_info)
+        empty_table = pd.DataFrame(columns=columns)
         empty_table["dataset", "core", "name"] = []
         return empty_table
 
