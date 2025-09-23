@@ -68,7 +68,7 @@ def _get_form_and_patients_from_request(request: HttpRequest) -> FormAndPatients
 
     if not form.is_valid():
         logger.error(
-            f"Form not valid even after initializing with initial data: {form.errors}"
+            f"Form not valid even after initializing with initial data: {form.errors}",
         )
         return HttpResponseBadRequest("Form is not valid.")
 
@@ -136,7 +136,7 @@ def update_data_stats(request: HttpRequest) -> JsonResponse:
 def render_data_table(request: HttpRequest, page_idx: int) -> HttpResponse:
     """Render the `pandas.DataFrame` currently displayed in the dashboard."""
     _, patients = _get_form_and_patients_from_request(request)
-    patients["tumor", "1", "extension"] = patients.ly.midext.astype(bool)
+    patients["tumor", "core", "extension"] = patients.ly.midext.astype("boolean")
 
     paginator = Paginator(object_list=patients, per_page=15)
     page = paginator.get_page(page_idx)

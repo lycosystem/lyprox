@@ -116,13 +116,23 @@ def style_table(patients: pd.DataFrame) -> Styler:
         )
         .format(
             formatter=get_institution_shortname,
-            subset=[("patient", "#", "institution")],
+            subset=[("patient", "core", "institution")],
+        )
+        .format(
+            formatter=lambda d: d.strftime("%Y-%m-%d") if pd.notna(d) else "-",
+            subset=[
+                (modality, "core", "date")
+                for modality in lyutils.get_default_modalities()
+            ]
+            + [("patient", "core", "diagnose_date")],
         )
         .set_sticky(axis="index")
-        .set_sticky(axis="columns")
         .set_table_attributes("class='table'")
         .set_td_classes(map_to_cell_classes(patients))
-        .set_properties(width="100%")
+        .set_properties(
+            **{"min-width": "6rem"},
+            subset=[("tumor", "core", "location")],
+        )
     )
     stop_time = time.perf_counter()
     logger.info(

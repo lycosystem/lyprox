@@ -8,6 +8,7 @@ import pandas as pd
 from django.db import models
 from github import Repository
 from lydata.loader import LyDataset
+from lydata.validator import cast_dtypes
 
 from lyprox import loggers
 from lyprox.accounts.models import Institution
@@ -61,6 +62,7 @@ def cached_load_dataframe(
     )
     df = lydataset.get_dataframe(use_github=True, token=GITHUB_TOKEN)
     df = ensure_lnls_in_modalities(df)
+    df = cast_dtypes(df)
     logger.info(f"Loaded dataset {lydataset} into DataFrame ({df.shape=}).")
     return df
 
