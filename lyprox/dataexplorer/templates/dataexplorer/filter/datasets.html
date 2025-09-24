@@ -29,12 +29,23 @@
     {% for checkbox in form.datasets %}
     <div class="control">
       {{ checkbox.tag }}
-      <label for="{{ checkbox.id_for_label }}" class="button is-medium is-size-6 is-link is-light pl-1">
-        <span class="icon is-large tag has-background-white p-1 mx-1">
-          <img src="{{ checkbox.choice_label|get_logo }}" alt="institution logo">
-        </span>
-        <span>{{ checkbox.choice_label|get_subsite }}</span>
-      </label>
+      <div class="dataset buttons has-addons">
+        <label for="{{ checkbox.id_for_label }}" class="button is-medium is-size-6 is-link is-light">
+          <span class="icon is-large tag has-background-white p-1 mx-1">
+            <img src="{{ checkbox.choice_label|get_logo }}" alt="institution logo">
+          </span>
+          <span>{{ checkbox.choice_label|get_subsite }}</span>
+        </label>
+        <div class="button is-medium is-size-6 is-static">
+          <span class="stats dataset-count" data-statfield="datasets" data-key="{{ checkbox.choice_label }}">
+            {% if show_percent %}
+              {{ stats.datasets|get_percent:checkbox.choice_label }}%
+            {% else %}
+              {{ stats.datasets|get:checkbox.choice_label|default:0 }}
+            {% endif %}
+          </span>
+        </div>
+      </div>
     </div>
     {% endfor %}
   </div>
