@@ -52,5 +52,14 @@
         "country": "DE",
         "phone": "+497612700",
         "logo": "logos/ukf.png"
+    },
+    {
+        "name": "Kantonsspital Aarau",
+        "shortname": "KSA",
+        "street": "Tellstrasse 25",
+        "city": "Aarau",
+        "country": "CH",
+        "phone": "+41628384141",
+        "logo": "logos/ksa.png"
     }
 ]

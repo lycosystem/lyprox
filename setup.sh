@@ -63,7 +63,7 @@ info "clone LyProX repo into correct location:"
 if [[ ! -d /srv/www/$1/.git ]]; then
     git init /srv/www/$1
 fi
-git --git-dir=/srv/www/$1/.git remote add origin https://github.com/rmnldwg/lyprox
+git --git-dir=/srv/www/$1/.git remote add origin https://github.com/lycosystem/lyprox
 git --git-dir=/srv/www/$1/.git --work-tree=/srv/www/$1 fetch --tags --force
 git --git-dir=/srv/www/$1/.git --work-tree=/srv/www/$1 checkout --force $branch
 git --git-dir=/srv/www/$1/.git --work-tree=/srv/www/$1 pull --force

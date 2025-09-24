@@ -1,6 +1,6 @@
 [
     {
-        "repo_name": "rmnldwg/lynference",
+        "repo_name": "lycosystem/lynference",
         "ref": "complete-part1-v1",
         "graph_config_path": "params.yaml",
         "model_config_path": "params.yaml",

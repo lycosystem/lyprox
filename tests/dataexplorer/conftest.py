@@ -4,13 +4,6 @@ from typing import Any
 from pytest import fixture
 
 from lyprox.dataexplorer.forms import DataexplorerForm
-from lyprox.dataexplorer.loader import DataInterface
-
-
-@fixture(scope="session")
-def data_interface() -> DataInterface:
-    """Return a loaded data interface."""
-    return DataInterface()
 
 
 MockUser = namedtuple("MockUser", ["is_authenticated"])

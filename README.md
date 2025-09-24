@@ -26,13 +26,13 @@ The data that is visualized in this interface lives in an open-source repository
 
 We have also published a paper on the dataset and the interface in *Radiotherapy & Oncology* [^9], with a preprint being available on *medRxiv* [^10].
 
-[lyDATA]: https://github.com/rmnldwg/lydata
+[lyDATA]: https://github.com/lycosystem/lydata
 
 ## Probabilistic Models for Personalized CTV Definition
 
 We also work on probabilistic models [^7] [^8] that may predict the lymphatic spread of head & neck cancer. The underlying code is hosted in another repository: [lymph].
 
-[lymph]: https://github.com/rmnldwg/lymph
+[lymph]: https://github.com/lycosystem/lymph
 
 ## How to contribute
 

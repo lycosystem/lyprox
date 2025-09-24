@@ -58,7 +58,10 @@ def cached_fetch_and_merge_yaml(
 
 
 ConfigAndVersionTupleType = tuple[
-    GraphConfig, ModelConfig, dict[str | int, DistributionConfig], int
+    GraphConfig,
+    ModelConfig,
+    dict[str | int, DistributionConfig],
+    int,
 ]
 
 
@@ -110,11 +113,12 @@ def cached_fetch_model_samples(
     ref: str,
     samples_path: str,
     num_samples: int,
+    remote: str | None = None,
     seed: int = 42,
 ) -> np.ndarray:
     """Fetch the model samples from the HDF5 file in the DVC repo."""
     repo_url = f"https://github.com/{repo_name}"
-    dvc_fs = DVCFileSystem(url=repo_url, rev=ref)
+    dvc_fs = DVCFileSystem(url=repo_url, rev=ref, remote=remote)
 
     with tempfile.NamedTemporaryFile() as temp_file:
         dvc_fs.get_file(samples_path, temp_file.name)
@@ -166,7 +170,7 @@ class CheckpointModel(loggers.ModelLoggerMixin, models.Model):
     .. _DVC: https://dvc.org/
     """
 
-    repo_name = models.CharField(max_length=50, default="rmnldwg/lynference")
+    repo_name = models.CharField(max_length=50, default="lycosystem/lynference")
     """Identifier of the GitHub repository that contains the trained model."""
     ref = models.CharField(max_length=40, default="main")
     """Git reference of the trained model. E.g., a commit hash, tag, or branch name."""
@@ -183,6 +187,8 @@ class CheckpointModel(loggers.ModelLoggerMixin, models.Model):
     """Path to HDF5 file containing the parameter samples inside the git repo."""
     num_samples = models.PositiveIntegerField(default=100)
     """Number of samples to use for computing the prior risk matrices."""
+    remote = models.CharField(max_length=50, default="azure", null=True, blank=True)
+    """Name of the `DVC`_ remote storage to fetch the samples from."""
 
     class Meta:
         """Meta options for the `CheckpointModel`."""
@@ -249,6 +255,7 @@ class CheckpointModel(loggers.ModelLoggerMixin, models.Model):
             ref=self.ref,
             samples_path=self.samples_path,
             num_samples=self.num_samples,
+            remote=self.remote,
         )
 
     def compute_priors(self, t_stage: int | str) -> np.ndarray:
@@ -264,7 +271,7 @@ class CheckpointModel(loggers.ModelLoggerMixin, models.Model):
         for t_stage in self.construct_model().get_all_distributions():
             priors = self.compute_priors(t_stage=t_stage)
             self.logger.info(
-                f"{self} precomputed prior for {t_stage=} with {priors.shape=}."
+                f"{self} precomputed prior for {t_stage=} with {priors.shape=}.",
             )
 
     def save(self, *args: Any, **kwargs: Any) -> None:

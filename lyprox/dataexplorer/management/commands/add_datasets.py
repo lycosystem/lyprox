@@ -54,7 +54,6 @@ import json
 from pathlib import Path
 
 from django.core.management import base
-from django.db import IntegrityError
 from github import BadCredentialsException
 
 from lyprox.accounts.models import Institution
@@ -118,29 +117,34 @@ class Command(base.BaseCommand):
                     "subsite": options["subsite"],
                     "repo_name": options["repo_name"],
                     "ref": options["ref"],
-                }
+                },
             ]
 
         for config in dataset_configs:
-            config["institution"] = Institution.objects.get(
-                shortname=config["institution"].upper(),
-            )
+            shortname = config["institution"].upper()
+            config["institution"] = Institution.objects.get(shortname=shortname)
+
             try:
-                dataset = DatasetModel.objects.create(**config)
-                table = dataset.load_dataframe()
-                msg = f"Successfully added dataset {dataset} with {table.shape=}."
-                self.stdout.write(self.style.SUCCESS(msg))
-            except IntegrityError:
-                msg = (
-                    f"Dataset '{config['year']}"
-                    f"-{config['institution'].shortname.lower()}"
-                    f"-{config['subsite']}' already exists. Skipping."
+                dataset, was_created = DatasetModel.objects.update_or_create(
+                    year=config.pop("year"),
+                    institution=config.pop("institution"),
+                    subsite=config.pop("subsite"),
+                    defaults=config,
                 )
-                self.stdout.write(self.style.WARNING(msg))
+                table = dataset.load_dataframe()
             except BadCredentialsException:
                 msg = "Failed to add dataset due to invalid GitHub credentials."
                 self.stdout.write(self.style.ERROR(msg))
+                continue
             except Exception as exc:
                 msg = f"Failed to add dataset {config} due to {exc}."
                 self.stdout.write(self.style.ERROR(msg))
                 dataset.delete()
+                continue
+
+            if was_created:
+                msg = f"Successfully added dataset {dataset} with {table.shape=}."
+                self.stdout.write(self.style.SUCCESS(msg))
+            else:
+                msg = f"Dataset {dataset} already exists. Updating to {table.shape=}."
+                self.stdout.write(self.style.WARNING(msg))
