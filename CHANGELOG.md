@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2025-09-24
+
+### 🚀 Features
+
+- Smartly update or create datasets via CLI
+- Add KSA oral cavity dataset
+
+### 🐛 Bug Fixes
+
+- Add `==True` to involved table styling cond
+- All LNLs now present in all modalities
+- Update links to lycosystem organisation
+- Use updated/fixed lydata code
+- Update midlvl cols to "core"
+- Merge introduced bug in add datasets cmd
+- Dataexplorer crash when no datasets selected
+- Allow specifying DVC remote for riskmodels
+
+### 💼 Other
+
+- Move funcs from views to utils
+- Added number of patients for subsites and datasets
+
+### ⚙️ Miscellaneous Tasks
+
+- Fix initial datasets using tags
+- Add latest publications
+- Update pre-commit & ruff rules
+- Add initial for KSA institution and dataset
+
 <a name="1.1.3"></a>
 
 ## [1.1.3] - 2025-06-10
@@ -483,6 +513,7 @@ Commits before the 2nd of March 2023 did not use conventional commits and no cha
 - [0.0.2] - 2021-10-04
 - 0.0.1 - 2021-10-04
 
+[1.2.0]: https://github.com/rmnldwg/lyprox/compare/1.1.3...1.2.0
 [1.1.3]: https://github.com/rmnldwg/lyprox/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/rmnldwg/lyprox/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/rmnldwg/lyprox/compare/1.1.0...1.1.1
