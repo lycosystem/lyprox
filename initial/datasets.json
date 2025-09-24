@@ -3,63 +3,56 @@
         "year": 2021,
         "institution": "usz",
         "subsite": "oropharynx",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "dev"
+        "repo_name": "lycosystem/lydata",
+        "ref": "2021-usz-oropharynx-v4"
     },
     {
         "year": 2021,
         "institution": "clb",
         "subsite": "oropharynx",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "dev"
+        "repo_name": "lycosystem/lydata",
+        "ref": "2021-clb-oropharynx-v2"
     },
     {
         "year": 2023,
         "institution": "clb",
         "subsite": "multisite",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "dev"
+        "repo_name": "lycosystem/lydata",
+        "ref": "2023-clb-multisite-v3"
     },
     {
         "year": 2023,
         "institution": "isb",
         "subsite": "multisite",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "dev"
+        "repo_name": "lycosystem/lydata",
+        "ref": "2023-isb-multisite-v4"
     },
     {
         "year": 2025,
         "institution": "usz",
         "subsite": "hypopharynx-larynx",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "dev"
+        "repo_name": "lycosystem/lydata",
+        "ref": "2025-usz-hypopharynx-larynx-v1"
     },
     {
         "year": 2025,
         "institution": "umcg",
         "subsite": "hypopharynx-larynx",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "dev"
+        "repo_name": "lycosystem/lydata",
+        "ref": "2025-umcg-hypopharynx-larynx-v1"
     },
     {
         "year": 2025,
         "institution": "hvh",
         "subsite": "oropharynx",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "dev"
+        "repo_name": "lycosystem/lydata",
+        "ref": "2025-hvh-oropharynx-v4"
     },
     {
         "year": 2025,
         "institution": "ukf",
         "subsite": "hypopharynx",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "dev"
-    },
-    {
-        "year": 2025,
-        "institution": "ksa",
-        "subsite": "oral-cavity",
-        "repo_name": "lycosystem/lydata.private",
-        "ref": "2025-ksa-oral-cavity"
+        "repo_name": "lycosystem/lydata",
+        "ref": "2025-ukf-hypopharynx-v1"
     }
 ]
