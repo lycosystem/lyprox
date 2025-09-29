@@ -36,9 +36,20 @@ Maintenance
 Beyond understanding and modifying the source code of the app, there is also general
 maintenance work to be done. Right now, the web app runs on an `Azure`_ virtual machine.
 
-On this machine, the repository is cloned into the ``/srv/www/lyprox.org`` directory.
-A `systemd`_ service provides the `gunicorn`_ server that in turn provides the
-interface between the `Django`_ app and the `nginx`_ web server that handles any
+To access the shell of this virtual machine, the easiest way is to use the `Azure-CLI`_.
+After that is installed, you can log in using the command ``az login``. After being
+authenticated, you can enter the VM's shell using the command
+
+.. code-block:: bash
+
+    az ssh vm --resource-group <name-of-resource-group> --vm-name <name-of-vm>
+
+
+You can find the names of the resource group and the VM in the `Azure`_ portal.
+
+On the virtual machine, the repository is cloned into the ``/srv/www/lyprox.org``
+directory. A `systemd`_ service provides the `gunicorn`_ server that in turn provides
+the interface between the `Django`_ app and the `nginx`_ web server that handles any
 incoming requests.
 
 We have chosen `systemd`_ over e.g. docker, because in this simple instance where
@@ -83,6 +94,7 @@ and **not** directly in the `settings`. Of course, **never** commit the ``.env``
 file to source control.
 
 .. _Azure: https://portal.azure.com
+.. _Azure-CLI: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 .. _systemd: https://systemd.io
 .. _gunicorn: https://gunicorn.org
 .. _nginx: https://nginx.org
