@@ -38,10 +38,11 @@ We also work on probabilistic models [^7] [^8] that may predict the lymphatic sp
 
 There are two ways you can contribute to this project:
 
-1. If you are a clinical researcher in the field and would like to share your data with us, please get in touch with us via email: [roman.ludwig@usz.ch].
+1. If you are a clinical researcher in the field and would like to share your data with us, please get in touch with us via email: [yoel.perezhaas@usz.ch] or [noemi.buehrer@usz.ch].
 2. The other way is by contributing to this repository, e.g. if you are a software developer. I guess this is somewhat unlikely, due to the very specific scope of this Django app, but we still welcome any contribution. In this case, a [detailed documentation] of the source code can be consulted.
 
-[roman.ludwig@usz.ch]: mailto:roman.ludwig@usz.ch
+[yoel.perezhaas@usz.ch]: mailto:yoel.perezhaas@usz.ch
+[noemi.buehrer@usz.ch]: mailto:noemi.buehrer@usz.ch
 [detailed documentation]: https://lycosystem.github.io/lyprox
 
 ## Run this interface locally

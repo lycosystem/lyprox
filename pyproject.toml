@@ -9,7 +9,9 @@ build-backend = "setuptools.build_meta"
 name = "lyprox"
 description = "Web app for exploring patterns and correlations in the lymph node level involvements of head & neck cancer patients."
 authors = [
-    {name = "Roman Ludwig", email = "roman.ludwig@usz.ch"}
+    {name = "Roman Ludwig", email = "gygqdstu3@mozmail.com"},
+    {name = "Yoel Pérez Haas", email = "yoel.perezhaas@usz.ch"},
+    {name = "Noemi Bührer", email = "noemi.buehrer@usz.ch"},
 ]
 readme = "README.md"
 keywords = ["web app", "head and neck", "cancer", "radiation oncology", "lymph nodes", "metastases"]
