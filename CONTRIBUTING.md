@@ -85,6 +85,8 @@ Also, make sure you do understand how to use [git] and [GitHub] for collaborativ
 
 To keep the code and documentation clean and readable, we follow a few conventions. Any contributions should adhere to these style conventions.
 
+Most of the stuff written here is also documented in [our organization-wide wiki](https://github.com/lycosystem/.github/wiki/Code-Style). Actually, the content there should be newer and more complete than what is written here, so maybe check there first.
+
 ### Code Style
 
 We use [ruff] to format the code. The selected and ignored rules are specified in the `pyproject.toml` file at the root of the repository.
