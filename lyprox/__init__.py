@@ -86,7 +86,6 @@ file to source control.
 .. _systemd: https://systemd.io
 .. _gunicorn: https://gunicorn.org
 .. _nginx: https://nginx.org
-.. _uv: https://docs.astral.sh/uv/
 
 Django Commands
 ---------------
@@ -162,8 +161,8 @@ be configured via various settings stored in the aptly named `settings`_ module.
 explains which parts of the configuration are hard-coded and which ones may be set
 via environment variables.
 
-Source Code
-===========
+Inner Workings
+==============
 
 For a better understanding of the inner workings of the app, we recommend to start
 reading the documentation of the following modules:
