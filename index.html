@@ -116,26 +116,28 @@
       <div>
          
           <div class="childrenKindTitle">Contents</div>
-          <ul><li><a class="rst-internal rst-reference" href="#rst-introduction" id="rst-toc-entry-13">Introduction</a></li>
-<li><p class="rst-first"><a class="rst-internal rst-reference" href="#rst-maintenance" id="rst-toc-entry-14">Maintenance</a></p>
+          <ul><li><a class="rst-internal rst-reference" href="#rst-introduction" id="rst-toc-entry-15">Introduction</a></li>
+<li><p class="rst-first"><a class="rst-internal rst-reference" href="#rst-maintenance" id="rst-toc-entry-16">Maintenance</a></p>
 <ul class="rst-simple">
-<li><a class="rst-internal rst-reference" href="#rst-bash-commands" id="rst-toc-entry-15">Bash Commands</a><ul>
-<li><a class="rst-internal rst-reference" href="#rst-systemd-commands" id="rst-toc-entry-16">Systemd Commands</a></li>
-<li><a class="rst-internal rst-reference" href="#rst-environment" id="rst-toc-entry-17">Environment</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-bash-commands" id="rst-toc-entry-17">Bash Commands</a><ul>
+<li><a class="rst-internal rst-reference" href="#rst-systemd-commands" id="rst-toc-entry-18">Systemd Commands</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-environment" id="rst-toc-entry-19">Environment</a></li>
 </ul>
 </li>
-<li><a class="rst-internal rst-reference" href="#rst-django-commands" id="rst-toc-entry-18">Django Commands</a><ul>
-<li><a class="rst-internal rst-reference" href="#rst-built-in" id="rst-toc-entry-19">Built In</a></li>
-<li><a class="rst-internal rst-reference" href="#rst-custom" id="rst-toc-entry-20">Custom</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-django-commands" id="rst-toc-entry-20">Django Commands</a><ul>
+<li><a class="rst-internal rst-reference" href="#rst-built-in" id="rst-toc-entry-21">Built In</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-custom" id="rst-toc-entry-22">Custom</a></li>
 </ul>
 </li>
+<li><a class="rst-internal rst-reference" href="#rst-settings" id="rst-toc-entry-23">Settings</a></li>
 </ul>
 </li>
-<li><p class="rst-first"><a class="rst-internal rst-reference" href="#rst-conventions" id="rst-toc-entry-21">Conventions</a></p>
+<li><a class="rst-internal rst-reference" href="#rst-inner-workings" id="rst-toc-entry-24">Inner Workings</a></li>
+<li><p class="rst-first"><a class="rst-internal rst-reference" href="#rst-conventions" id="rst-toc-entry-25">Conventions</a></p>
 <ul class="rst-simple">
-<li><a class="rst-internal rst-reference" href="#rst-code-style" id="rst-toc-entry-22">Code Style</a></li>
-<li><a class="rst-internal rst-reference" href="#rst-docstrings" id="rst-toc-entry-23">Docstrings</a></li>
-<li><a class="rst-internal rst-reference" href="#rst-pre-commit-hooks-and-conventional-commits" id="rst-toc-entry-24">Pre-Commit Hooks and Conventional Commits</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-code-style" id="rst-toc-entry-26">Code Style</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-docstrings" id="rst-toc-entry-27">Docstrings</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-pre-commit-hooks-and-conventional-commits" id="rst-toc-entry-28">Pre-Commit Hooks and Conventional Commits</a></li>
 </ul>
 </li>
 </ul>
@@ -364,12 +366,14 @@ in this documentation:</p>
 <li><a class="rst-internal rst-reference" href="#rst-custom" id="rst-toc-entry-8">Custom</a></li>
 </ul>
 </li>
+<li><a class="rst-internal rst-reference" href="#rst-settings" id="rst-toc-entry-9">Settings</a></li>
 </ul>
 </li>
-<li><a class="rst-internal rst-reference" href="#rst-conventions" id="rst-toc-entry-9">Conventions</a><ul>
-<li><a class="rst-internal rst-reference" href="#rst-code-style" id="rst-toc-entry-10">Code Style</a></li>
-<li><a class="rst-internal rst-reference" href="#rst-docstrings" id="rst-toc-entry-11">Docstrings</a></li>
-<li><a class="rst-internal rst-reference" href="#rst-pre-commit-hooks-and-conventional-commits" id="rst-toc-entry-12">Pre-Commit Hooks and Conventional Commits</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-inner-workings" id="rst-toc-entry-10">Inner Workings</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-conventions" id="rst-toc-entry-11">Conventions</a><ul>
+<li><a class="rst-internal rst-reference" href="#rst-code-style" id="rst-toc-entry-12">Code Style</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-docstrings" id="rst-toc-entry-13">Docstrings</a></li>
+<li><a class="rst-internal rst-reference" href="#rst-pre-commit-hooks-and-conventional-commits" id="rst-toc-entry-14">Pre-Commit Hooks and Conventional Commits</a></li>
 </ul>
 </li>
 </ul>
@@ -404,13 +408,15 @@ to some general info - the green text <tt class="rst-docutils rst-literal">activ
 <li><dl class="rst-docutils rst-first">
 <dt><tt class="rst-docutils rst-literal">sudo systemctl start lyprox.org.service</tt></dt>
 <dd>Launch the <a class="rst-external rst-reference" href="https://gunicorn.org" target="_top">gunicorn</a> server. One can also use <tt class="rst-docutils rst-literal">stop</tt> or <tt class="rst-docutils rst-literal">restart</tt> to perform
-the corresponding action.</dd>
+the corresponding action. E.g., a <tt class="rst-docutils rst-literal">restart</tt> is typically necessary if something
+in the source code or the dependencies was changed. Because only upon restart will
+the stuff from the virtual environment be loaded again.</dd>
 </dl>
 </li>
 <li><dl class="rst-docutils rst-first">
 <dt><tt class="rst-docutils rst-literal">sudo journalctl <span class="pre">-u</span> lyprox.org.service <span class="pre">-f</span></tt></dt>
 <dd>Shows a continuous stream of the latest log messages emitted by the app. Here,
-one will see the log messages written into the source code of the app.</dd>
+one will see the log messages emitted from the source code of the app.</dd>
 </dl>
 </li>
 </ul>
@@ -420,25 +426,11 @@ commands. Simply replace <tt class="rst-docutils rst-literal">lyprox.org</tt> wi
 </div>
 <div class="rst-section" id="rst-environment">
 <h4 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-5">Environment</a></h4>
-<p>Next, some commands related to the virtual Python environment and the environment
-variables that Django uses for certain settings and secrets:</p>
-<ul class="rst-simple">
-<li><dl class="rst-docutils rst-first">
-<dt><tt class="rst-docutils rst-literal">uv sync</tt></dt>
-<dd>We use <a class="rst-external rst-reference" href="https://docs.astral.sh/uv/" target="_top">uv</a> to manage virtual environments and with this command, one can
-synchronize the virtual environment with the <tt class="rst-docutils rst-literal">requirements.txt</tt> file. For this to
-work, one needs to be inside the <tt class="rst-docutils rst-literal">/srv/www/lyprox.org</tt> directory.</dd>
-</dl>
-</li>
-<li><dl class="rst-docutils rst-first">
-<dt><tt class="rst-docutils rst-literal">set <span class="pre">-a;</span> source .env; set +a</tt></dt>
-<dd>This command loads all the environment variables from the <tt class="rst-docutils rst-literal">.env</tt> file into the
-current shell. It is strongly recommended to put the secret key as well as some
-config and passwords into the <tt class="rst-docutils rst-literal">.env</tt> file and <strong>not</strong> directly in the <code><a href="lyprox.settings.html" class="internal-link" title="lyprox.settings">settings</a></code>.
-Of course, <strong>never</strong> commit the <tt class="rst-docutils rst-literal">.env</tt> file to source control.</dd>
-</dl>
-</li>
-</ul>
+<p>With the command <tt class="rst-docutils rst-literal">set <span class="pre">-a;</span> source .env; set +a</tt> one can load all the environment
+variables from the <tt class="rst-docutils rst-literal">.env</tt> file into the current shell. It is strongly recommended
+to put the secret key as well as some config and passwords into the <tt class="rst-docutils rst-literal">.env</tt> file
+and <strong>not</strong> directly in the <code><a href="lyprox.settings.html" class="internal-link" title="lyprox.settings">settings</a></code>. Of course, <strong>never</strong> commit the <tt class="rst-docutils rst-literal">.env</tt>
+file to source control.</p>
 </div>
 </div>
 <div class="rst-section" id="rst-django-commands">
@@ -480,12 +472,13 @@ useful for testing code snippets or inspecting the database.</dd>
 </dl>
 </li>
 </ul>
+<p>All these are provided by <a class="rst-external rst-reference" href="https://djangoproject.com" target="_top">Django</a> itself and are also
+<a class="rst-external rst-reference" href="https://docs.djangoproject.com/en/4.2/ref/django-admin/" target="_top">well documented</a> in their
+docs.</p>
 </div>
 <div class="rst-section" id="rst-custom">
 <h4 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-8">Custom</a></h4>
-<p>All these are provided by <a class="rst-external rst-reference" href="https://djangoproject.com" target="_top">Django</a> itself and are also
-<a class="rst-external rst-reference" href="https://docs.djangoproject.com/en/4.2/ref/django-admin/" target="_top">well documented</a> in their
-docs. Now come a couple of commands that we implemented for ourselves. They are all
+<p>Now come a couple of commands that we implemented for ourselves. They are all
 about populating the database:</p>
 <ul class="rst-simple">
 <li><dl class="rst-docutils rst-first">
@@ -525,17 +518,37 @@ results.</dd>
 </ul>
 </div>
 </div>
+<div class="rst-section" id="rst-settings">
+<h3 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-9">Settings</a></h3>
+<p>Apart from the commands to monitor and maintain the server and database, the app can
+be configured via various settings stored in the aptly named <a class="rst-internal rst-reference" href="#rst-settings">settings</a> module. It
+explains which parts of the configuration are hard-coded and which ones may be set
+via environment variables.</p>
+</div>
+</div>
+<div class="rst-section" id="rst-inner-workings">
+<h2 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-10">Inner Workings</a></h2>
+<p>For a better understanding of the inner workings of the app, we recommend to start
+reading the documentation of the following modules:</p>
+<ul class="rst-simple">
+<li>the <code><a href="lyprox.dataexplorer.html" class="internal-link" title="lyprox.dataexplorer">dataexplorer</a></code> module, which provides the interactive data exploration tool
+that is the heart of the website.</li>
+<li>the <code><a href="lyprox.riskpredictor.html" class="internal-link" title="lyprox.riskpredictor">riskpredictor</a></code> module, that allows computing the risk for occult disease,
+given an individual diagnosis as computed by a specified model.</li>
+<li>the <code><a href="lyprox.accounts.html" class="internal-link" title="lyprox.accounts">accounts</a></code> module, that provides user management and authentication.</li>
+</ul>
 </div>
 <div class="rst-section" id="rst-conventions">
-<h2 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-9">Conventions</a></h2>
+<h2 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-11">Conventions</a></h2>
 <p>To keep the code and documentation clean and readable, we follow a few conventions. Any contributions should adhere to these style conventions.</p>
+<p>Most of the stuff written here is also documented in <a class="rst-external rst-reference" href="https://github.com/lycosystem/.github/wiki/Code-Style" target="_top">our organization-wide wiki</a>. Actually, the content there should be newer and more complete than what is written here, so maybe check there first.</p>
 <div class="rst-section" id="rst-code-style">
-<h3 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-10">Code Style</a></h3>
+<h3 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-12">Code Style</a></h3>
 <p>We use <a class="rst-external rst-reference" href="https://docs.astral.sh/ruff/" target="_top">ruff</a> to format the code. The selected and ignored rules are specified in the <tt class="rst-docutils rst-literal">pyproject.toml</tt> file at the root of the repository.</p>
 <p>Also, we are big fans of <a class="rst-external rst-reference" href="https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html" target="_top">type hints</a> in function arguments and class attributes and use them wherever possible. While not enforced, as there may be cases where type hints are not feasible or useful, we generally strive to use them extensively.</p>
 </div>
 <div class="rst-section" id="rst-docstrings">
-<h3 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-11">Docstrings</a></h3>
+<h3 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-13">Docstrings</a></h3>
 <p>Docstrings should follow the format below. Note that we don't like the styles where the docstring lists all function arguments and their types <em>again</em>. We think this is redundant as long as</p>
 <ul class="rst-simple">
 <li>the argument names are meaningful</li>
@@ -567,7 +580,7 @@ results.</dd>
 <p>When using docstrings as above, the documentation can be auto-generated from the code using <a class="rst-external rst-reference" href="https://pydoctor.readthedocs.io/en/latest/" target="_top">pydoctor</a>. Its output is simple, clean, and comprehensive. It lists all modules, classes, and functions in the same hierarchy as they appear in the codebase. If the docstrings are well-written, they can effectively guide the reader through the codebase. Cross-references can be added using single backticks, e.g., <tt class="rst-docutils rst-literal">`my_symbol`</tt> will search the entire codebase (and even other linked docs) for this symbol and add a link to it if found.</p>
 </div>
 <div class="rst-section" id="rst-pre-commit-hooks-and-conventional-commits">
-<h3 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-12">Pre-Commit Hooks and Conventional Commits</a></h3>
+<h3 class="heading"><a class="rst-toc-backref" href="#rst-toc-entry-14">Pre-Commit Hooks and Conventional Commits</a></h3>
 <p>We use <a class="rst-external rst-reference" href="https://pre-commit.com/" target="_top">pre-commit</a> to run [ruff] and other checks before every commit. This ensures that the code adheres to some basic standards and that all commit messages are so-called <a class="rst-external rst-reference" href="https://www.conventionalcommits.org/en/v1.0.0/" target="_top">conventional commits</a>. To enable this, you need to install <a class="rst-external rst-reference" href="https://pre-commit.com/" target="_top">pre-commit</a> (e.g., by running <tt class="rst-docutils rst-literal">uv add <span class="pre">pre-commit</span></tt> or, better yet, by installing it via <a class="rst-external rst-reference" href="https://pipx.pypa.io/" target="_top">pipx</a>) and then install the following two hooks:</p>
 <pre class="rst-literal-block rst-bash rst-code">
 pre-commit<span class="rst-w"> </span>install<span class="rst-w">
@@ -667,7 +680,7 @@ pre-commit<span class="rst-w"> </span>install<span class="rst-w">
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for LyProX,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.4.0 at 2025-09-05 10:47:04.
+    25.4.0 at 2025-09-29 09:27:25.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
