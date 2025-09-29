@@ -7,6 +7,11 @@ database. The command can be used in two ways:
 1. By providing a JSON file with a list of user configurations.
 2. By providing command line arguments for a single user configuration.
 
+In both cases, the password is extracted from environment variables and cannot be
+defined in the JSON file or via command line arguments. This is for security reasons.
+If you want to add a new user with email address ``foo.bear@forest.com``, then the
+environment variable storing their password must be called ``DJANGO_FOOBEAR_PASSWORD``.
+
 The help text shown when running ``lyprox add_users --help`` is as follows:
 
 .. code-block:: text
@@ -62,6 +67,15 @@ from django.core.management import base
 from django.db.utils import IntegrityError
 
 from lyprox.accounts.models import Institution, User
+
+
+def _remove_punctuation(text: str) -> str:
+    """Remove punctuation characters from a string.
+
+    This is used to convert email addresses into environment variable names.
+    """
+    punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    return text.translate(str.maketrans("", "", punctuation))
 
 
 class Command(base.BaseCommand):
@@ -136,13 +150,13 @@ class Command(base.BaseCommand):
                     "is_active": options["is_active"],
                     "is_staff": options["is_staff"],
                     "is_superuser": options["is_superuser"],
-                }
+                },
             ]
 
         for config in user_configurations:
             env_name = (
                 "DJANGO_"
-                + config["email"].split("@")[0].upper().replace(".", "")
+                + _remove_punctuation(config["email"].split("@")[0].upper())
                 + "_PASSWORD"
             )
 
@@ -151,8 +165,8 @@ class Command(base.BaseCommand):
             except KeyError:
                 self.stdout.write(
                     self.style.ERROR(
-                        f"Environment variable '{env_name}' not found. Skipping."
-                    )
+                        f"Environment variable '{env_name}' not found. Skipping.",
+                    ),
                 )
                 continue
 
@@ -163,17 +177,17 @@ class Command(base.BaseCommand):
                 )
                 User.objects.create(**config)
                 self.stdout.write(
-                    self.style.SUCCESS(f"User '{config['email']}' created.")
+                    self.style.SUCCESS(f"User '{config['email']}' created."),
                 )
             except IntegrityError:
                 self.stdout.write(
                     self.style.WARNING(
-                        f"User '{config['email']}' already exists. Skipping."
-                    )
+                        f"User '{config['email']}' already exists. Skipping.",
+                    ),
                 )
             except Exception as exc:
                 self.stdout.write(
                     self.style.ERROR(
-                        f"User '{config['email']}' could not be created: {exc}"
-                    )
+                        f"User '{config['email']}' could not be created: {exc}",
+                    ),
                 )
