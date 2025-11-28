@@ -21,6 +21,16 @@ input[type="checkbox"].checkbox:checked:hover + .tumor.buttons label {
     color: white;
 }
 
+input[type="checkbox"].checkbox:checked + .dataset.buttons label {
+    background-color: #005EA8;
+    color: white;
+}
+
+input[type="checkbox"].checkbox:checked:hover + .dataset.buttons label {
+    background-color: #005392;
+    color: white;
+}
+
 input[type="radio"].radio:checked + label {
     background-color: #005EA8;
     color: white;
@@ -71,4 +81,11 @@ div.stats.tag {
 
 .is-margin-right-auto {
     margin-right: auto !important;
+}
+
+.dataset.buttons > label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
