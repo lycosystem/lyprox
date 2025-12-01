@@ -13,7 +13,7 @@
     <div class="level-left">
       <div class="level-item">
         <div>
-          <a href="{{ checkpoint.repo_name }}" target="_blank" class="title is-4 is-family-code has-text-primary">
+          <a href="{% url 'riskpredictor:dashboard' checkpoint_pk=checkpoint.pk %}" target="_blank" class="title is-4 is-family-code has-text-primary">
             {{ checkpoint.ref }}
           </a>
 
