@@ -34,4 +34,4 @@ As hinted at earlier, more data is planned to be released. We have received anot
 
 In the long term, we would also like to extend the functionality of the interface to allow our collaborators and us to directly enter patient data into LyProX. That way, multiple institutions and researchers could collectively add data in a seamless manner.
 
-If you are interested in our project and would like to learn more, and/or contribute to it in some form, feel free to reach out to us via an email to [roman.ludwig@usz.ch](mailto:roman.ludwig@usz.ch).
+If you are interested in our project and would like to learn more, and/or contribute to it in some form, feel free to reach out to us via an email to [yoel.perezhaas@usz.ch](mailto:yoel.perezhaas@usz.ch) or [noemi.buehrer@usz.ch](mailto:noemi.buehrer@usz.ch).

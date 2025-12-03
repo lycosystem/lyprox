@@ -402,6 +402,19 @@ function populateFields(response) {
       $(this).html("±" + newValue.toFixed(0) + "%");
     }
   });
+
+  // Update subsite tooltips dynamically
+  $(".subsite-tooltip").each(function () {
+    const subsiteCode = $(this).data("subsite-code");
+    const patientCount = response.subsite[subsiteCode] || 0;
+    const currentTooltip = $(this).attr("data-tooltip");
+
+    // Extract the label part (everything before the opening parenthesis)
+    const labelPart = currentTooltip.split(" (")[0];
+    const newTooltip = `${labelPart} (${patientCount} patients)`;
+
+    $(this).attr("data-tooltip", newTooltip);
+  });
 };
 
 

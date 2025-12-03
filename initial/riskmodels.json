@@ -5,6 +5,17 @@
         "graph_config_path": "params.yaml",
         "model_config_path": "params.yaml",
         "dist_configs_path": "params.yaml",
-        "num_samples": 100
+        "num_samples": 100,
+        "description": "Model for bilateral lymphatic spread in oropharyngeal squamous cell carcinoma. It is implemented using the Midline model without evolution. The underlying graph is a previous version that has since been updated."
+    },
+    {
+        "repo_name": "rmnldwg/bilateral-paper",
+        "ref": "full-v1",
+        "graph_config_path": "models/full/params.ly.yaml",
+        "model_config_path": "models/full/params.ly.yaml",
+        "dist_configs_path": "models/full/params.ly.yaml",
+        "samples_path": "models/full/samples.hdf5",
+        "num_samples": 100,
+        "description": "Model for bilateral lymphatic spread in oropharyngeal squamous cell carcinoma. It is implemented using the Midline model with evolution. The underlying graph corresponds to the one used in the publication on the bilateral model. \n\n**References:** [Bilateral Model Paper](https://doi.org/10.1038/s41598-025-99978-7)"
     }
 ]

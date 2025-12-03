@@ -6,7 +6,7 @@ main dashboard of LyProX.
 
 In the `views`, the `execute_query` function is called with the cleaned data from the
 `DataexplorerForm`. This `execute_query` function then creates a combined query using
-the fancy `lydata.accessor.C` objects from `lydata`_. These classes allow arbitrary
+the fancy `lydata.querier.C` objects from `lydata`_. These classes allow arbitrary
 combinations of deferred queries to be created and only later be executed.
 
 After executing the query, the filtered dataset is used to compute `Statistics` using
@@ -122,7 +122,7 @@ def execute_query(cleaned_form_data: dict[str, Any]) -> pd.DataFrame:
     Based on
     this cleaned form data, the involvement data from different modalities is combined
     using the `lydata`_ accessor method `lydata.accessor.LyDataAccessor.combine`. Then,
-    a query is created using the `lydata.accessor.C` objects and executed on the
+    a query is created using the `lydata.querier.C` objects and executed on the
     dataset using the `lydata.accessor.LyDataAccessor.query` method. The resulting
     filtered dataset is returned.
 

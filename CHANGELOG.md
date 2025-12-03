@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2025-12-03
+
+### 🚀 Features
+
+- Add bilateral risk model
+- Add description of risk models
+
+### 🐛 Bug Fixes
+
+- Fixed the subsite number of pat. information
+- Make pwd from env more robust
+- Restore dataset button selection styling
+- Restore link to risk predictor
+
+### 📚 Documentation
+
+- Add some more guidance
+- Fix pydoctor syntax errors
+- Add info about shell connection to VM
+
+### ⚙️ Miscellaneous Tasks
+
+- Update inital/datasets.json
+- Update the nginx configs
+- Change email addresses
+- Add KSA logo
+
+<a name="1.2.0"></a>
+
 ## [1.2.0] - 2025-09-24
 
 ### 🚀 Features
@@ -513,6 +542,7 @@ Commits before the 2nd of March 2023 did not use conventional commits and no cha
 - [0.0.2] - 2021-10-04
 - 0.0.1 - 2021-10-04
 
+[1.2.1]: https://github.com/lycosystem/lyprox/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/rmnldwg/lyprox/compare/1.1.3...1.2.0
 [1.1.3]: https://github.com/rmnldwg/lyprox/compare/1.1.2...1.1.3
 [1.1.2]: https://github.com/rmnldwg/lyprox/compare/1.1.1...1.1.2

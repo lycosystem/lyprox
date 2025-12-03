@@ -36,9 +36,20 @@ Maintenance
 Beyond understanding and modifying the source code of the app, there is also general
 maintenance work to be done. Right now, the web app runs on an `Azure`_ virtual machine.
 
-On this machine, the repository is cloned into the ``/srv/www/lyprox.org`` directory.
-A `systemd`_ service provides the `gunicorn`_ server that in turn provides the
-interface between the `Django`_ app and the `nginx`_ web server that handles any
+To access the shell of this virtual machine, the easiest way is to use the `Azure-CLI`_.
+After that is installed, you can log in using the command ``az login``. After being
+authenticated, you can enter the VM's shell using the command
+
+.. code-block:: bash
+
+    az ssh vm --resource-group <name-of-resource-group> --vm-name <name-of-vm>
+
+
+You can find the names of the resource group and the VM in the `Azure`_ portal.
+
+On the virtual machine, the repository is cloned into the ``/srv/www/lyprox.org``
+directory. A `systemd`_ service provides the `gunicorn`_ server that in turn provides
+the interface between the `Django`_ app and the `nginx`_ web server that handles any
 incoming requests.
 
 We have chosen `systemd`_ over e.g. docker, because in this simple instance where
@@ -62,10 +73,12 @@ First, some commands related to the `systemd`_ services:
     to some general info - the green text ``active (running)``.
 - ``sudo systemctl start lyprox.org.service``
     Launch the `gunicorn`_ server. One can also use ``stop`` or ``restart`` to perform
-    the corresponding action.
+    the corresponding action. E.g., a ``restart`` is typically necessary if something
+    in the source code or the dependencies was changed. Because only upon restart will
+    the stuff from the virtual environment be loaded again.
 - ``sudo journalctl -u lyprox.org.service -f``
     Shows a continuous stream of the latest log messages emitted by the app. Here,
-    one will see the log messages written into the source code of the app.
+    one will see the log messages emitted from the source code of the app.
 
 Similarly, one can inspect the status and logs of the ``nginx.service`` that runs the
 interface between the `gunicorn`_ server and the outside world with the corresponding
@@ -74,24 +87,17 @@ commands. Simply replace ``lyprox.org`` with ``nginx.service`` in the above comm
 Environment
 ^^^^^^^^^^^
 
-Next, some commands related to the virtual Python environment and the environment
-variables that Django uses for certain settings and secrets:
-
-- ``uv sync``
-    We use `uv`_ to manage virtual environments and with this command, one can
-    synchronize the virtual environment with the ``requirements.txt`` file. For this to
-    work, one needs to be inside the ``/srv/www/lyprox.org`` directory.
-- ``set -a; source .env; set +a``
-    This command loads all the environment variables from the ``.env`` file into the
-    current shell. It is strongly recommended to put the secret key as well as some
-    config and passwords into the ``.env`` file and **not** directly in the `settings`.
-    Of course, **never** commit the ``.env`` file to source control.
+With the command ``set -a; source .env; set +a`` one can load all the environment
+variables from the ``.env`` file into the current shell. It is strongly recommended
+to put the secret key as well as some config and passwords into the ``.env`` file
+and **not** directly in the `settings`. Of course, **never** commit the ``.env``
+file to source control.
 
 .. _Azure: https://portal.azure.com
+.. _Azure-CLI: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 .. _systemd: https://systemd.io
 .. _gunicorn: https://gunicorn.org
 .. _nginx: https://nginx.org
-.. _uv: https://docs.astral.sh/uv/
 
 Django Commands
 ---------------
@@ -122,12 +128,14 @@ current working directory and the virtual environment is activated).
     This command starts a Python shell with the `Django`_ environment loaded. This is
     useful for testing code snippets or inspecting the database.
 
+All these are provided by `Django`_ itself and are also
+`well documented <https://docs.djangoproject.com/en/4.2/ref/django-admin/>`_ in their
+docs.
+
 Custom
 ^^^^^^
 
-All these are provided by `Django`_ itself and are also
-`well documented <https://docs.djangoproject.com/en/4.2/ref/django-admin/>`_ in their
-docs. Now come a couple of commands that we implemented for ourselves. They are all
+Now come a couple of commands that we implemented for ourselves. They are all
 about populating the database:
 
 - ``lyprox add_institutions --from-file initial/institutions.json``
@@ -156,6 +164,26 @@ about populating the database:
 .. _lyDATA: https://github.com/lycosystem/lydata
 .. _pandas: https://pandas.pydata.org
 .. _SQLite3: https://sqlite.org
+
+Settings
+--------
+
+Apart from the commands to monitor and maintain the server and database, the app can
+be configured via various settings stored in the aptly named `settings`_ module. It
+explains which parts of the configuration are hard-coded and which ones may be set
+via environment variables.
+
+Inner Workings
+==============
+
+For a better understanding of the inner workings of the app, we recommend to start
+reading the documentation of the following modules:
+
+- the `dataexplorer` module, which provides the interactive data exploration tool
+  that is the heart of the website.
+- the `riskpredictor` module, that allows computing the risk for occult disease,
+  given an individual diagnosis as computed by a specified model.
+- the `accounts` module, that provides user management and authentication.
 
 Conventions
 ===========

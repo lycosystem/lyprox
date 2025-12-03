@@ -17,7 +17,8 @@ model. The output of ``lyprox add_riskmodels --help`` is:
                                  [--model-config-path MODEL_CONFIG_PATH]
                                  [--dist-configs-path DIST_CONFIGS_PATH]
                                  [--samples-path SAMPLES_PATH]
-                                 [--num-samples NUM_SAMPLES] [--version]
+                                 [--num-samples NUM_SAMPLES]
+                                 [--description DESCRIPTION] [--version]
                                  [-v {0,1,2,3}] [--settings SETTINGS]
                                  [--pythonpath PYTHONPATH] [--traceback]
                                  [--no-color] [--force-color] [--skip-checks]
@@ -43,6 +44,8 @@ model. The output of ``lyprox add_riskmodels --help`` is:
                             Path to YAML params in git repository.
       --num-samples NUM_SAMPLES
                             Number of samples used.
+      --description DESCRIPTION
+                            Description of the model, supports Markdown formatting.
       --version             Show program's version number and exit.
       -v {0,1,2,3}, --verbosity {0,1,2,3}
                             Verbosity level; 0=minimal output, 1=normal output,
@@ -129,6 +132,12 @@ class Command(base.BaseCommand):
             default=100,
             help="Number of samples used.",
         )
+        parser.add_argument(
+            "--description",
+            type=str,
+            default="",
+            help="Description of the model, supports Markdown formatting.",
+        )
 
     def handle(self, *args, **options):
         """Execute command."""
@@ -145,26 +154,27 @@ class Command(base.BaseCommand):
                     "dist_configs_path": options["dist_configs_path"],
                     "samples_path": options["samples_path"],
                     "num_samples": options["num_samples"],
-                }
+                    "description": options["description"],
+                },
             ]
 
         for config in riskmodel_configs:
             try:
                 CheckpointModel.objects.create(**config)
                 self.stdout.write(
-                    self.style.SUCCESS(f"CheckpointModel '{config['ref']}' created.")
+                    self.style.SUCCESS(f"CheckpointModel '{config['ref']}' created."),
                 )
             except IntegrityError:
                 self.stdout.write(
                     self.style.WARNING(
                         f"CheckpointModel from repo_name='{config['repo_name']}' and "
-                        f"ref='{config['ref']}' already exists."
-                    )
+                        f"ref='{config['ref']}' already exists.",
+                    ),
                 )
             except Exception as exc:
                 self.stdout.write(
                     self.style.ERROR(
                         f"CheckpointModel from repo_name='{config['repo_name']}' and "
-                        f"ref='{config['ref']}' could not be created doe to {exc}"
-                    )
+                        f"ref='{config['ref']}' could not be created due to {exc}",
+                    ),
                 )

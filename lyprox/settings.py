@@ -108,7 +108,7 @@ GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 
 GITHUB = Github(auth=Auth.Token(GITHUB_TOKEN))
 
-ADMIN_EMAIL = os.getenv("DJANGO_ADMIN_EMAIL", "roman.ludwig@usz.ch")
+ADMIN_EMAIL = os.getenv("DJANGO_ADMIN_EMAIL", "yoel.perezhaas@usz.ch")
 """Email address of the admin.
 
 .. include:: run-local.md
