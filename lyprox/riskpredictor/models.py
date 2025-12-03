@@ -189,6 +189,8 @@ class CheckpointModel(loggers.ModelLoggerMixin, models.Model):
     """Number of samples to use for computing the prior risk matrices."""
     remote = models.CharField(max_length=50, default="azure", null=True, blank=True)
     """Name of the DVC remote storage to fetch the samples from."""
+    description = models.TextField(blank=True, null=True)
+    """Description of the model, supports Markdown formatting."""
 
     class Meta:
         """Meta options for the `CheckpointModel`."""
