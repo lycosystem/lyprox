@@ -97,5 +97,32 @@
         "is_active": true,
         "is_staff": false,
         "is_superuser": false
+    },
+    {
+        "email": "matoro@student.ethz.ch",
+        "first_name": "Maria Giulia",
+        "last_name": "Toro",
+        "institution": "USZ",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false
+    },
+    {
+        "email": "andrew.hope@uhn.ca",
+        "first_name": "Andrew",
+        "last_name": "Hope",
+        "institution": "UHN",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false
+    },
+    {
+        "email": "sejin.kim@uhn.ca",
+        "first_name": "Sejin",
+        "last_name": "Kim",
+        "institution": "UHN",
+        "is_active": true,
+        "is_staff": false,
+        "is_superuser": false
     }
 ]

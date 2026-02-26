@@ -114,6 +114,17 @@ class Subsites:
         C10_8 = "C10.8", "Overlapping lesion of oropharynx"
         C10_9 = "C10.9", "Oropharynx, unspecified"
 
+    class Nasopharynx(models.TextChoices):
+        """Tumor subsites in the nasopharynx."""
+
+        C11 = "C11", "Nasopharynx"
+        C11_0 = "C11.0", "Superior wall of nasopharynx"
+        C11_1 = "C11.1", "Posterior wall of nasopharynx"
+        C11_2 = "C11.2", "Lateral wall of nasopharynx"
+        C11_3 = "C11.3", "Anterior wall of nasopharynx"
+        C11_8 = "C11.8", "Overlapping lesion of nasopharynx"
+        C11_9 = "C11.9", "Nasopharynx, unspecified"
+
     class Hypopharynx(models.TextChoices):
         """Tumor subsites in the rest of the hypopharynx."""
 
@@ -125,6 +136,11 @@ class Subsites:
         C13_2 = "C13.2", "Posterior wall of hypopharynx"
         C13_8 = "C13.8", "Overlapping lesion of hypopharynx"
         C13_9 = "C13.9", "Hypopharynx, unspecified"
+
+    class NasalCavity(models.TextChoices):
+        """Tumor subsite in the nasal cavity."""
+
+        C30_0 = "C30.0", "Nasal cavity"
 
     class Larynx(models.TextChoices):
         """Tumor subsites in the rest of the larynx."""

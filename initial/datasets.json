@@ -61,5 +61,12 @@
         "subsite": "oral-cavity",
         "repo_name": "lycosystem/lydata.private",
         "ref": "2025-ksa-oral-cavity"
+    },
+    {
+        "year": 2024,
+        "institution": "uhn",
+        "subsite": "multisite",
+        "repo_name": "lycosystem/lydata.private",
+        "ref": "2024-uhn-multisite"
     }
 ]
