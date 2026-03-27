@@ -52,8 +52,22 @@
       </div>
     </div>
   </div>
-
-  <p class="title is-5">Location & Subsite</p>
+  <div class="level mb-4">
+    <div class="level-left">
+      <div class="level-item">
+        <p class="title is-5 mb-2">Location & Subsite</p>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <div class="button is-small has-text-weight-bold is-warning has-text-white has-tooltip-top"
+          onclick="toggleAllSubsites();"
+          data-tooltip="Select or deselect all datasets">
+          <span>Select / Deselect all</span>
+        </div>
+      </div>
+    </div>
+  </div>
   {% for subsite in form.get_subsite_fields %}
   <div class="notification is-info p-1 m-1">
     {% include 'dataexplorer/filter/subsite.html' with checkboxes=form|get:subsite stats=stats show_percent=show_percent %}

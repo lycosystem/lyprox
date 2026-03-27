@@ -92,6 +92,23 @@ function toggleAll(name) {
   changeHandler();
 }
 
+/**
+ * Toggle all subsite selections.
+ */
+function toggleAllSubsites() {
+  const checkboxes = document.querySelectorAll(
+    '#dashboard-form input[type="checkbox"][name^="subsite_"]'
+  );
+  if (checkboxes.length === 0) {
+    return;
+  }
+  const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = !anyChecked;
+  }
+  changeHandler();
+}
+
 // Add the ability to submit the form via non-AJAX GET request to the server
 $(document).keydown(function (event) {
   if (event.altKey && event.key == 'c') {
