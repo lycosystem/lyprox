@@ -64,9 +64,9 @@
     },
     {
         "year": 2024,
-        "institution": "uhn",
+        "institution": "pmh",
         "subsite": "multisite",
         "repo_name": "lycosystem/lydata.private",
-        "ref": "2024-uhn-multisite"
+        "ref": "2024-pmh-multisite"
     }
 ]

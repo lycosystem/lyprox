@@ -63,12 +63,12 @@
         "logo": "logos/ksa.png"
     },
     {
-        "name": "University Health Network",
-        "shortname": "UHN",
+        "name": "Princes Margaret Hospital",
+        "shortname": "PMH",
         "street": "190 Elizabeth St.",
         "city": "Toronto, ON",
         "country": "CA",
         "phone": "+14169464559",
-        "logo": "logos/uhn.png"
+        "logo": "logos/pmh.png"
     }
 ]
