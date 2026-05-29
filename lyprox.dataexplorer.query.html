@@ -508,7 +508,7 @@ main dashboard of LyProX.</p>
 the fancy <code><a href="https://lydata.readthedocs.io/latest/querier.html#lydata.querier.C" class="intersphinx-link">lydata.querier.C</a></code> objects from <a class="rst-external rst-reference" href="https://lydata.readthedocs.io/stable/" target="_top">lydata</a>. These classes allow arbitrary
 combinations of deferred queries to be created and only later be executed.</p>
 <p>After executing the query, the filtered dataset is used to compute <code><a href="#Statistics" class="internal-link" title="lyprox.dataexplorer.query.Statistics">Statistics</a></code> using
-the <code><a href="lyprox.dataexplorer.query.BaseStatistics.html#from_table" class="internal-link" title="lyprox.dataexplorer.query.BaseStatistics.from_table">from_table</a></code> classmethod. This <code><a href="https://docs.pydantic.dev/latest/api/base_model/#pydantic.BaseModel" class="intersphinx-link">pydantic.BaseModel</a></code> has similar fields to the
+the <code><a href="lyprox.dataexplorer.query.BaseStatistics.html#from_table" class="internal-link" title="lyprox.dataexplorer.query.BaseStatistics.from_table">from_table</a></code> classmethod. This <code><a href="https://docs.pydantic.dev/latest/api/pydantic/base_model/#pydantic.BaseModel" class="intersphinx-link">pydantic.BaseModel</a></code> has similar fields to the
 <code><a href="lyprox.dataexplorer.forms.DataexplorerForm.html" class="internal-link" title="lyprox.dataexplorer.forms.DataexplorerForm">DataexplorerForm</a></code> and is used to display the aggregated information of the filtered
 patient table in the dashboard.</p>
 </div>
@@ -552,7 +552,7 @@ patient table in the dashboard.</p>
     
     <td>Function</td>
     <td><code><a href="#make_ensure_keys_validator" class="internal-link" title="lyprox.dataexplorer.query.make_ensure_keys_validator">make<wbr></wbr>_ensure<wbr></wbr>_keys<wbr></wbr>_validator</a></code></td>
-    <td>Create an <code><a href="https://docs.pydantic.dev/latest/api/functional_validators/#pydantic.functional_validators.AfterValidator" class="intersphinx-link">AfterValidator</a></code> to ensure all <tt class="rst-docutils rst-literal">keys</tt> are present in the data.</td>
+    <td>Create an <code><a href="https://docs.pydantic.dev/latest/api/pydantic/functional_validators/#pydantic.functional_validators.AfterValidator" class="intersphinx-link">AfterValidator</a></code> to ensure all <tt class="rst-docutils rst-literal">keys</tt> are present in the data.</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -577,7 +577,7 @@ patient table in the dashboard.</p>
     
     <td>Variable</td>
     <td><code><a href="#lnl_fields" class="internal-link" title="lyprox.dataexplorer.query.lnl_fields">lnl<wbr></wbr>_fields</a></code></td>
-    <td>LNL fields, dynamically created for unpacking in the <code><a href="https://docs.pydantic.dev/latest/api/base_model/#pydantic.create_model" class="intersphinx-link">pydantic.create_model</a></code> call.</td>
+    <td>LNL fields, dynamically created for unpacking in the <code><a href="https://docs.pydantic.dev/latest/api/pydantic/base_model/#pydantic.create_model" class="intersphinx-link">pydantic.create_model</a></code> call.</td>
   </tr><tr class="variable">
     
     <td>Variable</td>
@@ -776,8 +776,8 @@ constructed from the schema of the <code><a href="https://lydata.readthedocs.io/
   </div>
   <div class="docstring functionBody">
     
-    <div><p>Create an <code><a href="https://docs.pydantic.dev/latest/api/functional_validators/#pydantic.functional_validators.AfterValidator" class="intersphinx-link">AfterValidator</a></code> to ensure all <tt class="rst-docutils rst-literal">keys</tt> are present in the data.</p>
-<p>This creates a function that can be used with pydantic's <code><a href="https://docs.pydantic.dev/latest/api/functional_validators/#pydantic.functional_validators.AfterValidator" class="intersphinx-link">AfterValidator</a></code> to ensure
+    <div><p>Create an <code><a href="https://docs.pydantic.dev/latest/api/pydantic/functional_validators/#pydantic.functional_validators.AfterValidator" class="intersphinx-link">AfterValidator</a></code> to ensure all <tt class="rst-docutils rst-literal">keys</tt> are present in the data.</p>
+<p>This creates a function that can be used with pydantic's <code><a href="https://docs.pydantic.dev/latest/api/pydantic/functional_validators/#pydantic.functional_validators.AfterValidator" class="intersphinx-link">AfterValidator</a></code> to ensure
 that all <tt class="rst-docutils rst-literal">keys</tt> are present in the validated data. pydantic first receives the
 value counts from the <code><a href="#safe_value_counts" class="internal-link" title="lyprox.dataexplorer.query.safe_value_counts">safe_value_counts</a></code> function, validates it, and then calls the
 function created by this wrapper to ensure that all keys are present.</p>
@@ -906,7 +906,7 @@ function created by this wrapper to ensure that all keys are present.</p>
   </div>
   <div class="functionBody">
     
-    <div><p>LNL fields, dynamically created for unpacking in the <code><a href="https://docs.pydantic.dev/latest/api/base_model/#pydantic.create_model" class="intersphinx-link">pydantic.create_model</a></code> call.</p></div>
+    <div><p>LNL fields, dynamically created for unpacking in the <code><a href="https://docs.pydantic.dev/latest/api/pydantic/base_model/#pydantic.create_model" class="intersphinx-link">pydantic.create_model</a></code> call.</p></div>
     
   </div>
 </div><div class="basevariable">
@@ -1076,7 +1076,7 @@ information that one can compute statistics on.</p>
   <div class="container-fluid">
     <a href="index.html">API Documentation</a> for LyProX,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-03-27 13:27:47.
+    25.10.1 at 2026-05-29 07:36:00.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
