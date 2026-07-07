@@ -59,7 +59,14 @@
         "year": 2025,
         "institution": "ksa",
         "subsite": "oral-cavity",
+        "repo_name": "lycosystem/lydata",
+        "ref": "2025-ksa-oral-cavity-v1"
+    },
+    {
+        "year": 2024,
+        "institution": "pmh",
+        "subsite": "multisite",
         "repo_name": "lycosystem/lydata.private",
-        "ref": "2025-ksa-oral-cavity"
+        "ref": "2024-pmh-multisite"
     }
 ]

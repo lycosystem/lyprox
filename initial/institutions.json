@@ -61,5 +61,14 @@
         "country": "CH",
         "phone": "+41628384141",
         "logo": "logos/ksa.png"
+    },
+    {
+        "name": "Princess Margaret Hospital",
+        "shortname": "PMH",
+        "street": "190 Elizabeth St.",
+        "city": "Toronto, ON",
+        "country": "CA",
+        "phone": "+14169464559",
+        "logo": "logos/pmh.png"
     }
 ]
