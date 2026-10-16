@@ -1,0 +1,16 @@
+<!--
+  This gets loaded by the main navbar.html template. This allows for easy customization of the navbar.
+-->
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link has-text-white" title="tumor sites beyond head and neck">
+    Other Sites
+  </a>
+
+  <div class="navbar-dropdown">
+    {% for key, site in navbar_sites.items %}
+    <a href="{% url 'sites:landing' site=key %}" class="navbar-item" title="{{ site.title }}">
+      {{ site.name }}
+    </a>
+    {% endfor %}
+  </div>
+</div>

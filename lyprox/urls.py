@@ -2,7 +2,7 @@
 
 This defines the view for the landing page, the URLs for downloads and media and the
 maintenance page. Otherwise it basically calls the URL configuration from the other
-apps, `dataexplorer.urls`, `riskpredictor.urls`, and `accounts.urls`.
+apps, `dataexplorer.urls`, `riskpredictor.urls`, `sites.urls`, and `accounts.urls`.
 """
 
 from django.conf import settings
@@ -17,6 +17,7 @@ urlpatterns = [
     path("accounts/", include("lyprox.accounts.urls")),
     path("dataexplorer/", include("lyprox.dataexplorer.urls")),
     path("riskpredictor/", include("lyprox.riskpredictor.urls")),
+    path("sites/", include("lyprox.sites.urls")),
     path("", views.index, name="index"),
     path("maintenance/", views.maintenance, name="maintenance"),
 ]

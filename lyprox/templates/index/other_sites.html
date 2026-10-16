@@ -1,0 +1,34 @@
+{% load static %}
+
+<!-- DRAFT: placeholder text, to be revised. -->
+<h1 class="title">Beyond Head and Neck Cancer</h1>
+<h2 class="subtitle">Extending LyProX to other tumor sites</h2>
+<p class="block">
+  In addition to head and neck cancer, we have started collecting data on lymphatic
+  progression for other tumor sites.
+</p>
+
+<div class="grid">
+  {% for key, site in navbar_sites.items %}
+  <div class="cell">
+    <a class="card" href="{% url 'sites:landing' site=key %}">
+      <header class="card-header">
+        <span class="card-header-title has-text-link">{{ site.title }}</span>
+      </header>
+      {% if site.card_image %}
+      <div class="card-image">
+        <figure class="image is-2by1">
+          <img src="{% static site.card_image %}?v={{ VERSION }}" alt="{{ site.title }}"
+            style="object-fit: contain;">
+        </figure>
+      </div>
+      {% endif %}
+      <div class="card-content">
+        <div class="content">
+          {{ site.description }}
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>

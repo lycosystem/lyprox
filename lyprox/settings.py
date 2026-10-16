@@ -257,6 +257,7 @@ INSTALLED_APPS = [
     "lyprox.accounts.apps.AccountsConfig",
     "lyprox.dataexplorer.apps.DataExplorerConfig",
     "lyprox.riskpredictor.apps.RiskConfig",
+    "lyprox.sites.apps.SitesConfig",
     # third party apps
     "fontawesomefree",
     "sekizai",
@@ -296,6 +297,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "lyprox.context_processors.selected_settings",
                 "lyprox.context_processors.navbar_apps",
+                "lyprox.sites.context_processors.sites",
                 "sekizai.context_processors.sekizai",
             ],
             "libraries": {

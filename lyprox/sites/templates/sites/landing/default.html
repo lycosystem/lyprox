@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% include 'head_content.html' with title="LyProX · "|add:site.title %}
+{% endblock head %}
+
+{% block content %}
+
+<!-- Hero / banner with logo, same as on the main landing page -->
+{% include 'index/hero.html' with cancer_type=site.cancer_type %}
+
+<!-- Introduction to this site, with an optional image on the right -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column">
+        {% with intro_template="sites/intro/"|add:site_key|add:".html" %}
+        {% include intro_template %}
+        {% endwith %}
+      </div>
+      {% if site.image %}
+      <div class="column is-1"></div>
+      <div class="column is-4">
+        <figure class="image">
+          <img src="{% static site.image %}?v={{ VERSION }}" alt="Schematic of the lymphatic system ({{ site.name }})">
+        </figure>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Publications, only shown if the site has any references -->
+{% if publications %}
+<section class="section">
+  <div class="container">
+    {% include 'index/publications.html' with publications=publications %}
+  </div>
+</section>
+{% endif %}
+{% endblock content %}
